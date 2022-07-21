@@ -2,48 +2,65 @@ package com.capgemini.managedepartmentservice.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.boot.context.properties.bind.Name;
+
 @Entity
-@Table(name= "depatmentDB")
+@Table(name= "departmentdetails")
 public class Department {
 	
 	@Id
 	@Column
-	private String department_Name;
+	private int id;
 	@Column
-	private String head_Of_Department_Name;
+	private String name;
 	@Column
-	private int head_Of_Department_PhoneNo;
+	private String hodName;
 	@Column
-	private int size_of_Department;
+	private long hodPhoneNo;
+	@Column
+	private int sizeOfDepartment;
 	
 	
-	public String getDepartment_Name() {
-		return department_Name;
+	public String getName() {
+		return name;
 	}
-	public void setDepartment_Name(String department_Name) {
-		this.department_Name = department_Name;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getHead_Of_Department_Name() {
-		return head_Of_Department_Name;
+	public String getHodName() {
+		return hodName;
 	}
-	public void setHead_Of_Department_Name(String head_Of_Department_Name) {
-		this.head_Of_Department_Name = head_Of_Department_Name;
+	public void setHodName(String hodName) {
+		this.hodName = hodName;
 	}
-	public int getHead_Of_Department_PhoneNo() {
-		return head_Of_Department_PhoneNo;
+	public long getHodPhoneNo() {
+		return hodPhoneNo;
 	}
-	public void setHead_Of_Department_PhoneNo(int head_Of_Department_PhoneNo) {
-		this.head_Of_Department_PhoneNo = head_Of_Department_PhoneNo;
+	public void setHodPhoneNo(long hodPhoneNo) {
+		this.hodPhoneNo = hodPhoneNo;
 	}
-	public int getSize_of_Department() {
-		return size_of_Department;
+	public int getSizeOfDepartment() {
+		return sizeOfDepartment;
 	}
-	public void setSize_of_Department(int size_of_Department) {
-		this.size_of_Department = size_of_Department;
+	public void setSizeOfDepartment(int sizeOfDepartment) {
+		this.sizeOfDepartment = sizeOfDepartment;
 	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	
+	
+	
 	
 	
 
