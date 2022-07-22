@@ -3,3 +3,12 @@ server:
 spring:
   application:
     name: manage-inventory-service
+  datasource:
+     driverClassName: com.mysql.cj.jdbc.Driver
+     url: jdbc:mysql://localhost:3306/inventorydb
+     username: root
+     password: 1234
+  jpa:
+     hibernate.ddl-auto: update
+     generate-ddl: true
+     show-sql: true

@@ -5,30 +5,38 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 @Entity
-@Table(name="inventoryDB")
+@EntityScan
+@Table(name = "inventorydetails")
 public class Inventory {
-	
 	@Id
 	@Column
-	private String item_Name;
+	private int id; 
 	@Column
-	private int item_Quantity;
+	private String itemname;
+	@Column
+	private int quantity;
+	public String getItemname() {
+		return itemname;
+	}
+	public void setItemname(String itemname) {
+		this.itemname = itemname;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	
-	public String getItem_Name() {
-		return item_Name;
-	}
-	public void setItem_Name(String item_Name) {
-		this.item_Name = item_Name;
-	}
-	public int getItem_Quantity() {
-		return item_Quantity;
-	}
-	public void setItem_Quantity(int item_Quantity) {
-		this.item_Quantity = item_Quantity;
-	}
 
-
-	
 }

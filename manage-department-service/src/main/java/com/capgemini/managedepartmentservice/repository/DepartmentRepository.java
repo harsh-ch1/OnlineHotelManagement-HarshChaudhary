@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
 import com.capgemini.managedepartmentservice.entity.Department;
-
 @Repository
 @EnableJpaRepositories
 public interface DepartmentRepository extends JpaRepository<Department, Integer>{
@@ -20,4 +19,6 @@ public interface DepartmentRepository extends JpaRepository<Department, Integer>
 	public void deleteById(int id);
 	
 	public Department findById(int id);
+	
+	public Department findByName (String name);
 }

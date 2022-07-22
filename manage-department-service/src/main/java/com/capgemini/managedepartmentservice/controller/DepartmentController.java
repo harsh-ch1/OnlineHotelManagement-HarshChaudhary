@@ -1,5 +1,7 @@
 package com.capgemini.managedepartmentservice.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +43,17 @@ public class DepartmentController {
 	@DeleteMapping(value = "/deletedepartment/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> deleteDepartment(@PathVariable int id) {
 		return ResponseEntity.ok(departmentService.deleteDepartmentService(id));
+	}
+	
+	@GetMapping(value = "/viewdepartment", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<DepartmentModel> findDepartmentByName(@RequestBody DepartmentModel department) {
+		return ResponseEntity.ok(departmentService.viewDepartmentByName(department.getName()));
+		
+	}
+	@GetMapping(value = "/viewall", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity <List<DepartmentModel>> viewAll() {
+		return ResponseEntity.ok(departmentService.viewAll());
+		
 	}
 	
 }

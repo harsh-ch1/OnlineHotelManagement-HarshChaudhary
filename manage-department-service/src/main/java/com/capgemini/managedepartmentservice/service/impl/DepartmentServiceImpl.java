@@ -1,5 +1,8 @@
 package com.capgemini.managedepartmentservice.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -8,7 +11,6 @@ import com.capgemini.managedepartmentservice.mapper.DepartmentMapper;
 import com.capgemini.managedepartmentservice.model.DepartmentModel;
 import com.capgemini.managedepartmentservice.repository.DepartmentRepository;
 import com.capgemini.managedepartmentservice.service.DepartmentService;
-
 @Component
 public class DepartmentServiceImpl implements DepartmentService{
 	
@@ -40,6 +42,19 @@ public class DepartmentServiceImpl implements DepartmentService{
 			e.printStackTrace();
 		}
 		return "can't delete";
+	}
+	
+	public DepartmentModel viewDepartmentByName(String name) {
+		Department departmentEntity =departmentRepository.findByName(name);
+		return departmentMapper.mapEntityToDto(departmentEntity);
+	}
+	public List<DepartmentModel> viewAll(){
+		List<Department> departmentList= departmentRepository.findAll();
+		List<DepartmentModel> modelList= new ArrayList<DepartmentModel>();
+		for(Department department: departmentList) {
+			modelList.add(departmentMapper.mapEntityToDto(department));
+		}
+		return modelList;
 	}
 
 }
