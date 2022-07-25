@@ -3,3 +3,8 @@ server:
 spring:
   application:
     name: retrieve-report-service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: reportdb

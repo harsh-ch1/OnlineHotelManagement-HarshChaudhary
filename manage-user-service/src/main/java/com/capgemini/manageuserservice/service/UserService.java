@@ -8,6 +8,6 @@ import com.capgemini.manageuserservice.model.UserModel;
 public interface UserService {
 	public UserModel addUserService(UserModel user);
 	public UserModel updateUserService(UserModel user);
-	public String deleteUserService(String email);
+	public String deleteUserService(String username);
 
 }
