@@ -6,17 +6,15 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Repository;
 
-import com.capgemini.retrievereportservice.entity.StaffPayment;
+import com.capgemini.retrievereportservice.entity.StaffPaymentReport;
 
 @Repository
 @EnableMongoRepositories
-public interface StaffRepository extends MongoRepository<StaffPayment,Integer> {
-	public List<StaffPayment> findAll();
+public interface StaffReportRepository extends MongoRepository<StaffPaymentReport,Integer> {
+	public List<StaffPaymentReport> findAll();
 	
 	@SuppressWarnings("unchecked")
-	public StaffPayment save(StaffPayment staff);
+	public StaffPaymentReport save(StaffPaymentReport staff);
 	
-	//public void deleteById(int id);
-	
-	//public StaffPayment findById(int id);
+	public void deleteAll();
 }

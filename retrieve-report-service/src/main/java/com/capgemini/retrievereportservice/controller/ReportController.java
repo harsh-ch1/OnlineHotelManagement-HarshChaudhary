@@ -3,22 +3,24 @@ package com.capgemini.retrievereportservice.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
 
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
-import java.net.URI;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 
+import java.io.File;
+import java.io.FileInputStream;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.capgemini.retrievereportservice.model.StaffModel;
-import com.capgemini.retrievereportservice.service.StaffService;
+import com.capgemini.retrievereportservice.model.StaffList;
+import com.capgemini.retrievereportservice.model.StaffReportModel;
+import com.capgemini.retrievereportservice.service.StaffReportService;
 
 
 
@@ -27,7 +29,7 @@ import com.capgemini.retrievereportservice.service.StaffService;
 public class ReportController {
 
 	@Autowired
-	private StaffService staffService;
+	private StaffReportService staffReportService;
 	
 	@Autowired
 	private RestTemplate restTemplate;
@@ -37,32 +39,29 @@ public class ReportController {
 			return ResponseEntity.ok("Hello World-5");
 	}
 	
-	@PostMapping(value = "/addstaff", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<StaffModel> addStaff(@RequestBody StaffModel staff) {
-		return ResponseEntity.ok(staffService.addStaffService(staff));
+	@GetMapping(value = "/dbtest", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<StaffReportModel>> dbTest() {
+			return ResponseEntity.ok(staffReportService.getStaffPaymentService());
 	}
 	
-	@GetMapping("/viewstaff")
-	public String fetchStudent() {
-		return restTemplate.exchange("http://localhost:8083/ManageStaff/viewstaff", HttpMethod.GET,null,String.class).getBody();
+	@GetMapping(value="/generatestaffreport")
+	public ResponseEntity<Object> generateStaffReport(){
+		
+		ResponseEntity<StaffList> staffList = restTemplate.getForEntity("http://localhost:8083/ManageStaff/reportdata", StaffList.class);
+		File file=staffReportService.generateStaffRreport(staffList.getBody());
+		try {
+		InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
+				
+		HttpHeaders headers= new HttpHeaders();
+		headers.add("Content-Disposition",String.format("attachment; filename=\"%s\"",file.getName()));
+		headers.add("Cache-Control","no-cache, no-store, must-revalidate");
+		headers.add("Pragma","no-cache");
+		headers.add("Expires","0");
+		
+		return ResponseEntity.ok().headers(headers).contentLength(file.length()).contentType(MediaType.parseMediaType("application/txt")).body(resource);
+		}catch(Exception e) {
+			return new ResponseEntity<>("error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
 	}
-	
-	
-	//@PutMapping(value = "/saveall", produces = MediaType.APPLICATION_JSON_VALUE)
-	//public ResponseEntity <String> saveAll() {
-		
-	//	List staffData = this.restTemplate.getForObject("http://localhost:8083/ManageStaff/viewstaff", List.class);
-		
-	//	return ResponseEntity.ok(staffService.addStaffService(staffData));
-		
-	//}
-	
-	//@GetMapping(value = "/viewstaff", produces = MediaType.APPLICATION_JSON_VALUE)
-	//public ResponseEntity <List<StaffPayment>> viewAll() {
-		// ResponseEntity<List<StaffPayment>> staffList = ResponseEntity.ok(staffService.getStaffService());
-		 //http://localhost:8083/ManageStaff/viewstaff
-		// ResponseEntity<List<StaffPayment>> staffDetails = (ResponseEntity<List<StaffPayment>>) this.restTemplate.getForObject("http://localhost:8083/ManageStaff/viewstaff",List.class);
-		 
-		// return staffDetails;
-	//}
 }

@@ -1,11 +1,5 @@
 package com.capgemini.managestaffservice.controller;
 
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capgemini.managestaffservice.model.StaffList;
 import com.capgemini.managestaffservice.model.StaffModel;
 import com.capgemini.managestaffservice.service.StaffService;
 
@@ -56,6 +51,11 @@ public class StaffController {
 	@GetMapping(value = "/viewstaff", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity <List<StaffModel>> viewAll() {
 		return ResponseEntity.ok(staffService.viewAllList());
-		
 	}
+
+	@GetMapping(value="/reportdata", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity <StaffList> staffreport(){
+		return ResponseEntity.ok(staffService.generateReport());
+	}
+
 }

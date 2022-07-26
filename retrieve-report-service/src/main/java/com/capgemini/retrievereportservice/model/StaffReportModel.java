@@ -2,7 +2,7 @@ package com.capgemini.retrievereportservice.model;
 
 import java.util.Date;
 
-public class StaffModel {
+public class StaffReportModel {
 	private int  code;
 	private String firstname;
 	private String lastname;

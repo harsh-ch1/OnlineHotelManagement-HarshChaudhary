@@ -1,5 +1,6 @@
 package com.capgemini.makereservationservice.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
@@ -35,5 +36,6 @@ public class ReservationController {
 	public ResponseEntity<String> makeReservation(@RequestBody ReservationModel reservation){
 		return ResponseEntity.ok(resttemplate.postForObject("http://localhost:8087/ManageRoom/bookedroom",reservationService.doReservation(reservation), String.class));
 	}
+	
 }
 

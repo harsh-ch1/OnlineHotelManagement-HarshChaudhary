@@ -6,8 +6,8 @@ import org.springframework.data.annotation.Id;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "RetrieveReport")
-public class StaffPayment {
+@Document(collection = "StaffPaymentReport")
+public class StaffPaymentReport {
 	
 	@Id
 	

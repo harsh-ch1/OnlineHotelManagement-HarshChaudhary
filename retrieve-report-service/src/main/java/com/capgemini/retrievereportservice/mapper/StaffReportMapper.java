@@ -2,14 +2,14 @@ package com.capgemini.retrievereportservice.mapper;
 
 import org.springframework.stereotype.Component;
 
-import com.capgemini.retrievereportservice.entity.StaffPayment;
-import com.capgemini.retrievereportservice.model.StaffModel;
+import com.capgemini.retrievereportservice.entity.StaffPaymentReport;
+import com.capgemini.retrievereportservice.model.StaffReportModel;
 
 @Component
-public class StaffMapper {
+public class StaffReportMapper {
 	
-	public StaffPayment mapDtoToEntity(StaffModel staff) {
-		StaffPayment staffEntity=new StaffPayment();
+	public StaffPaymentReport mapDtoToEntity(StaffReportModel staff) {
+		StaffPaymentReport staffEntity=new StaffPaymentReport();
 		staffEntity.setCode(staff.getCode());
 		staffEntity.setFirstname(staff.getFirstname());
 		staffEntity.setLastname(staff.getLastname());
@@ -17,8 +17,8 @@ public class StaffMapper {
 		staffEntity.setJoinedon(staff.getJoinedon());
 		return staffEntity;
 	}
-	public StaffModel mapEntityToDto(StaffPayment staff) {
-		StaffModel staffModel= new StaffModel();
+	public StaffReportModel mapEntityToDto(StaffPaymentReport staff) {
+		StaffReportModel staffModel= new StaffReportModel();
 		staffModel.setCode(staff.getCode());
 		staffModel.setFirstname(staff.getFirstname());
 		staffModel.setLastname(staff.getLastname());
