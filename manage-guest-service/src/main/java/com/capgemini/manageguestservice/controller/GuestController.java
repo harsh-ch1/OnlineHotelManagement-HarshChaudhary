@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,10 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.capgemini.manageguestservice.model.GuestModel;
 import com.capgemini.manageguestservice.service.GuestService;
 
+
+
+
 @RestController
 @RequestMapping("/ManageGuest")
 public class GuestController {
-
+	
 	@Autowired
 	private GuestService guestService;
 	
@@ -37,5 +41,9 @@ public class GuestController {
 	public ResponseEntity<GuestModel> viewGuest(@RequestBody GuestModel guest) {
 			return ResponseEntity.ok(guestService.viewGuestService(guest.getId()));
 	}
-
+	
+	@GetMapping(value = "/viewguest/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<GuestModel> viewGuest(@PathVariable String email) {
+			return ResponseEntity.ok(guestService.viewGuestService(email));
+	}
 }
