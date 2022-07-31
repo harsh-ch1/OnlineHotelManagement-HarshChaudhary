@@ -17,7 +17,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select()
-                .apis(RequestHandlerSelectors.basePackage("com.capgemini.managedepartmentservice.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.capgemini.paymentservice.controller"))
                 .paths(PathSelectors.regex("/.*"))
                 .build();
     }

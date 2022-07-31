@@ -3,20 +3,28 @@ server:
 
   
 spring:
+  main:
+    allow-bean-definition-overriding: TRUE
+  security:
+    user:
+      name: abc
+      password: abc
+    
   application:
     name: spring-cloud-gateway-server
+  
   cloud:
     gateway:
       routes:
       - id: ManageDepartment
         uri: http://localhost:8081/
         predicates:
-        - Path=/ManageDepartment/**
+        - Path=/owner/ManageDepartment/**
         
       - id: ManageInventory
         uri: http://localhost:8082/
         predicates:
-        - Path=/ManageInventory/**
+        - Path=manager/ManageInventory/**
         
       - id: ManageStaff
         uri: http://localhost:8083/

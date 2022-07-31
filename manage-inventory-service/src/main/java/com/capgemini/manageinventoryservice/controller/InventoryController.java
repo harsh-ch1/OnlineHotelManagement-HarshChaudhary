@@ -18,7 +18,7 @@ import com.capgemini.manageinventoryservice.model.InventoryModel;
 import com.capgemini.manageinventoryservice.service.InventoryService;
 
 @RestController
-@RequestMapping("ManageInventory")
+@RequestMapping("/manager/ManageInventory")
 public class InventoryController {
 	
 	@Autowired
@@ -26,7 +26,7 @@ public class InventoryController {
 	
 	@GetMapping(value = "/HelloTest", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> helloTest() {
-			return ResponseEntity.ok("Hello World 2");
+			return ResponseEntity.ok("Hello Manager ji");
 	}
 	
 	@PostMapping(value = "/addinventory", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)

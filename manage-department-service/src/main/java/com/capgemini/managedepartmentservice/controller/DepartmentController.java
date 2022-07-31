@@ -18,7 +18,7 @@ import com.capgemini.managedepartmentservice.model.DepartmentModel;
 import com.capgemini.managedepartmentservice.service.DepartmentService;
 
 @RestController
-@RequestMapping("/ManageDepartment")
+@RequestMapping("/owner/ManageDepartment")
 public class DepartmentController {
 	
 	@Autowired
@@ -27,7 +27,7 @@ public class DepartmentController {
 
 	@GetMapping(value = "/HelloTest", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> helloTest() {
-			return ResponseEntity.ok("Hello World-1");
+			return ResponseEntity.ok("Owner Department Login Successful");
 	}
 	
 	@PostMapping(value = "/adddepartment", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
