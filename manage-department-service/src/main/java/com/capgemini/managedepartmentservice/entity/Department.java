@@ -2,13 +2,8 @@ package com.capgemini.managedepartmentservice.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.springframework.boot.context.properties.bind.Name;
 
 @Entity
 @Table(name= "departmentdetails")
@@ -17,16 +12,25 @@ public class Department {
 	@Id
 	@Column
 	private int id;
+	
 	@Column
+
 	private String name;
+	
 	@Column
+
 	private String hodName;
+	
 	@Column
-	private long hodPhoneNo;
+	private String hodPhoneNo;
+	
 	@Column
+	
 	private int sizeOfDepartment;
 	
 	
+	
+
 	public String getName() {
 		return name;
 	}
@@ -39,10 +43,10 @@ public class Department {
 	public void setHodName(String hodName) {
 		this.hodName = hodName;
 	}
-	public long getHodPhoneNo() {
+	public String getHodPhoneNo() {
 		return hodPhoneNo;
 	}
-	public void setHodPhoneNo(long hodPhoneNo) {
+	public void setHodPhoneNo(String hodPhoneNo) {
 		this.hodPhoneNo = hodPhoneNo;
 	}
 	public int getSizeOfDepartment() {

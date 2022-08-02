@@ -18,6 +18,7 @@ import com.capgemini.springcloudgatewayserver.service.impl.UserDetailsServiceImp
 public class MyConfig extends WebSecurityConfigurerAdapter{
 	
 	
+	
 	@Bean
 	public UserDetailsService getUserDetailsService() {
 		return new UserDetailsServiceImpl();

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.capgemini.managedepartmentservice.service.impl.MessageListener;
 import com.capgemini.managedepartmentservice.model.DepartmentModel;
 import com.capgemini.managedepartmentservice.service.DepartmentService;
 
@@ -55,5 +55,10 @@ public class DepartmentController {
 		return ResponseEntity.ok(departmentService.viewAll());
 		
 	}
+	@GetMapping(value = "/notification", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity <List<String>> getnNotification() {
+		return ResponseEntity.ok (MessageListener.getMessageList());
+
+}
 	
 }

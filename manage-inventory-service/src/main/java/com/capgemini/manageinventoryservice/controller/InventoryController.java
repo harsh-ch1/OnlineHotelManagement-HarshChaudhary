@@ -1,9 +1,13 @@
 package com.capgemini.manageinventoryservice.controller;
 
+import java.util.Date;
 import java.util.List;
 
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import com.capgemini.manageinventoryservice.MqConfig;
+import com.capgemini.manageinventoryservice.model.CustomMessage;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +28,9 @@ public class InventoryController {
 	@Autowired
 	private InventoryService inventoryService;
 	
+	 @Autowired
+	 private RabbitTemplate template;
+	
 	@GetMapping(value = "/HelloTest", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> helloTest() {
 			return ResponseEntity.ok("Hello Manager ji");
@@ -31,17 +38,46 @@ public class InventoryController {
 	
 	@PostMapping(value = "/addinventory", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<InventoryModel> addInvent(@RequestBody InventoryModel inventory) {
-		return ResponseEntity.ok(inventoryService.addInvent(inventory));
+		InventoryModel model=inventoryService.addInvent(inventory);
+
+		CustomMessage message= new CustomMessage();
+
+		StringBuilder str=new StringBuilder();
+		str.append(model.getQuantity()).append(" ").append(model.getItemname()).append(" has been added to the Inventory ");
+
+		message.setMessage(str.toString());
+		message.setMessageDate(new Date());
+    	template.convertAndSend(MqConfig.EXCHANGE,MqConfig.ROUTING_KEY, message);
+
+		return ResponseEntity.ok(model);
 	}
 	
 	@PutMapping(value="/updateinventory", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<InventoryModel> updateInvent(@RequestBody InventoryModel inventory){
-		return ResponseEntity.ok(inventoryService.updateInvent(inventory));
+		InventoryModel model= inventoryService.updateInvent(inventory);
+		CustomMessage message= new CustomMessage();
+
+		StringBuilder str=new StringBuilder();
+		str.append(model.getItemname()).append(" with ").append(model.getQuantity()).append(" quantity has been updated in the Inventory ");
+
+		message.setMessage(str.toString());
+		message.setMessageDate(new Date());
+    	template.convertAndSend(MqConfig.EXCHANGE,MqConfig.ROUTING_KEY, message);
+
+		return ResponseEntity.ok(model);
 	}
 	
 	@DeleteMapping(value = "/deleteinventory/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> deleteInvent(@PathVariable int id) {
-		return ResponseEntity.ok(inventoryService.deleteInvent(id));
+		CustomMessage message= new CustomMessage();
+
+		StringBuilder str=new StringBuilder();
+		str.append("Item with ").append(id).append(" as item id has been deleted from the Inventory ");
+
+		message.setMessage(str.toString());
+		message.setMessageDate(new Date());
+    	template.convertAndSend(MqConfig.EXCHANGE,MqConfig.ROUTING_KEY, message);
+    	return ResponseEntity.ok(inventoryService.deleteInvent(id));
 	}
 	
 	@GetMapping(value = "/viewinventory", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
