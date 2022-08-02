@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capgemini.manageroomservice.model.AddRoomModel;
 import com.capgemini.manageroomservice.model.BookData;
 import com.capgemini.manageroomservice.model.RoomModel;
+import com.capgemini.manageroomservice.model.SetRatesModel;
 import com.capgemini.manageroomservice.service.RoomService;
 
 @RestController
@@ -29,12 +31,12 @@ public class RoomController {
 	}
 	
 	@PostMapping(value = "/addroom", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<RoomModel> addRoom(@RequestBody RoomModel room) {
+	public ResponseEntity<RoomModel> addRoom(@RequestBody AddRoomModel room) {
 		return ResponseEntity.ok(roomService.addRoomService(room));
 	}
 	
 	@PutMapping(value="/updateroom", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<RoomModel> updateRoom(@RequestBody RoomModel room){
+	public ResponseEntity<RoomModel> updateRoom(@RequestBody AddRoomModel room){
 		return ResponseEntity.ok(roomService.updateRoomService(room));
 	}
 	
@@ -44,7 +46,7 @@ public class RoomController {
 	}
 	
 	@PutMapping(value="/setrates", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> setrates(@RequestBody RoomModel room){
+	public ResponseEntity<String> setrates(@RequestBody SetRatesModel room){
 		return ResponseEntity.ok(roomService.setRatesService(room));
 	}
 	@PostMapping(value="/bookedroom", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -58,4 +60,3 @@ public class RoomController {
 	}
 	
 }
-

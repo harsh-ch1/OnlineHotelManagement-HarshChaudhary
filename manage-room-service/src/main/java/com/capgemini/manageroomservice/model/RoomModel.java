@@ -3,6 +3,14 @@ package com.capgemini.manageroomservice.model;
 import java.sql.Time;
 import java.util.Date;
 
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class RoomModel {
@@ -17,6 +25,7 @@ public class RoomModel {
 	private int extension_rate;
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date bookedtill;
+
 	
 	public RoomModel() {
 		

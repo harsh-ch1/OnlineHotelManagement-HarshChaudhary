@@ -2,11 +2,18 @@ package com.capgemini.managestaffservice.model;
 
 import java.util.Date;
 
+import javax.validation.constraints.Past;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class StaffReportModel {
 	private int  code;
 	private String firstname;
 	private String lastname;
 	private int salary;
+	
+	@Past
+	@DateTimeFormat
 	private Date joinedon;
 	
 	

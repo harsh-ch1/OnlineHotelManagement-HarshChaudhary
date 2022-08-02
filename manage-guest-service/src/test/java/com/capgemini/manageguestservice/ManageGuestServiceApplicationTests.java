@@ -38,10 +38,10 @@ class ManageGuestServiceApplicationTests {
         address.setPincode(243601);
         address.setCountry("India");
 		guest.setId(101);
-		guest.setFirstName("Jayant");
-		guest.setLastName("Tyagi");
+		guest.setFirstName("Harsh");
+		guest.setLastName("Chaudhary");
 		guest.setPhoneNumber("9536122002");
-		guest.setCompany("CApgemini");
+		guest.setCompany("Capgemini");
 		guest.setGender("Male");
 		guest.setEmail("tyghif@gmail.com");
 		guest.setAddress(address);
@@ -57,8 +57,8 @@ class ManageGuestServiceApplicationTests {
         address.setPincode(243601);
         address.setCountry("India");
 		guest.setId(102);
-		guest.setFirstName("Jayant");
-		guest.setLastName("Tyagi");
+		guest.setFirstName("Harsh");
+		guest.setLastName("Chaudhary");
 		guest.setPhoneNumber("9536122002");
 		guest.setCompany("CApgemini");
 		guest.setGender("Male");
@@ -74,16 +74,16 @@ class ManageGuestServiceApplicationTests {
 	public void updateTest()
 	{
 		Guest guest = repo.findById(101);
-		guest.setGender("Female");
+		guest.setCompany("CAPGEMINI");;
 		repo.save(guest);
-		assertNotEquals("Male", repo.findById(101).getGender());
+		assertNotEquals("Capgemini", repo.findById(101).getCompany());
 	}
 
 	@Test
 	@Order(3)
 	public void viewTest()
 	{
-		assertEquals("Tyagi",repo.findById(101).getLastName());
+		assertEquals("Chaudhary",repo.findById(101).getLastName());
 	}
 	
 	@Test

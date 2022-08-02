@@ -2,17 +2,43 @@ package com.capgemini.managestaffservice.model;
 
 import java.util.Date;
 
+import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class StaffModel {
+	@NotNull
 	private int  code;
+	
+	@NotBlank
 	private String firstname;
+	
+	@NotBlank
 	private String lastname;
+	
+	@NotNull
+    @Min(1000)
 	private int salary;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	
+	@NotNull
+	@PastOrPresent
+	@DateTimeFormat
 	private Date joinedon;
+	
+	@NotNull
+	@Min(value = 18)
+	@Max(value = 85)
 	private int age;
+	
+	@NotBlank
 	private String occupation;
+	
+	@NotBlank
+	@Email
+	@Pattern(regexp = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$",message = "criteria doesnt match")
 	private String email;
 	private AddressModel address;
 	

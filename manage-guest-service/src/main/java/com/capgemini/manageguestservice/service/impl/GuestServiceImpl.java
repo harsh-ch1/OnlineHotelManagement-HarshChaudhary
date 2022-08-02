@@ -1,11 +1,21 @@
 package com.capgemini.manageguestservice.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import javax.validation.Validation;
+import javax.validation.Validator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.capgemini.manageguestservice.entity.Guest;
 import com.capgemini.manageguestservice.mapper.AddressMapper;
 import com.capgemini.manageguestservice.mapper.GuestMapper;
+import com.capgemini.manageguestservice.model.AddressModel;
 import com.capgemini.manageguestservice.model.GuestModel;
 import com.capgemini.manageguestservice.repository.GuestRepository;
 import com.capgemini.manageguestservice.service.GuestService;
@@ -57,6 +67,37 @@ public class GuestServiceImpl implements GuestService {
 	public GuestModel viewGuestService(String email) {
 		Guest guestEntity = guestRepository.findByEmail(email);
 		return guestMapper.mapEntityToDto(guestEntity);
+	}
+	
+	private void validateEntity(GuestModel guest) {
+		List<String> errorMessage = new ArrayList<>();
+		Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+
+		Set<ConstraintViolation<GuestModel>> constraintViolations = validator.validate(guest);
+
+		for (ConstraintViolation<GuestModel> constraintViolation : constraintViolations) {
+			errorMessage.add(constraintViolation.getMessage());
+		}
+
+		if (errorMessage.size() > 0) {
+			throw new ConstraintViolationException(constraintViolations);
+		}
+
+	}
+	private void validateEntity(AddressModel address) {
+		List<String> errorMessage = new ArrayList<>();
+		Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+
+		Set<ConstraintViolation<AddressModel>> constraintViolations = validator.validate(address);
+
+		for (ConstraintViolation<AddressModel> constraintViolation : constraintViolations) {
+			errorMessage.add(constraintViolation.getMessage());
+		}
+
+		if (errorMessage.size() > 0) {
+			throw new ConstraintViolationException(constraintViolations);
+		}
+
 	}
 
 

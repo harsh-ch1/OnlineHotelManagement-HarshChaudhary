@@ -2,7 +2,12 @@ package com.capgemini.manageinventoryservice.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import javax.validation.Validation;
+import javax.validation.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -57,6 +62,22 @@ public class InventoryServiceImpl implements InventoryService {
 			modelList.add(inventoryMapper.mapEntityToDto(inventory));
 		}
 		return modelList;
+	}
+	
+	private void validateEntity(InventoryModel inventory) {
+		List<String> errorMessage = new ArrayList<>();
+		Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+
+		Set<ConstraintViolation<InventoryModel>> constraintViolations = validator.validate(inventory);
+
+		for (ConstraintViolation<InventoryModel> constraintViolation : constraintViolations) {
+			errorMessage.add(constraintViolation.getMessage());
+		}
+
+		if (errorMessage.size() > 0) {
+			throw new ConstraintViolationException(constraintViolations);
+		}
+
 	}
 	
 }
