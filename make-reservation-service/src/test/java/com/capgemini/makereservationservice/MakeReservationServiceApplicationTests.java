@@ -30,7 +30,7 @@ class MakeReservationServiceApplicationTests {
 		Reservation res = new Reservation();
 		res.setCode(101);
 		res.setGuestEmail("harsh@capegemini.com");
-		//res.setGuestPhoneNo("953613333");
+		res.setGuestPhoneNo("953613333");
 		res.setRoomno(201);
 		res.setStatus("available");
 		res.setNoOfNight(2);
