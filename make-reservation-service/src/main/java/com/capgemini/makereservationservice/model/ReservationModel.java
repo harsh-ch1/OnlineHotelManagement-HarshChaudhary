@@ -2,27 +2,45 @@ package com.capgemini.makereservationservice.model;
 
 import java.util.Date;
 
+import javax.validation.constraints.*;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class ReservationModel {
 	private int code;
+	@Min(value = 1)
+	@Max(value = 4)
 	private int noOfChildren;
+	@Min(value = 1)
+	@Max(value = 4)
 	private int noOfAdult;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@NotNull
+	@FutureOrPresent
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date checkIn;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@NotNull
+	@FutureOrPresent
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date checkOut;
+	@NotBlank
 	private String status;
-	private int noOfNight;
+	@NotNull
+	// no of nights can be 0.
+ 	private int noOfNight;
+	@NotNull
 	private int roomno;
+	@Email
+	@Pattern(regexp = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$", message = "criteria doesnt match")
 	private String guestEmail;
-	private long guestPhoneNo;
+	@NotBlank(message = "phone no can not be null")
+	@Pattern(regexp = "^(\\s*|\\d{10})$", message = "criteria doesn't match")
+	private String guestPhoneNo;
 	
 	public ReservationModel() {
 		super();
 	}
 	public ReservationModel(int code, int noOfChildren, int noOfAdult, Date checkIn, Date checkOut, String status,
-			int noOfNight, int roomno, String guestEmail, long guestPhoneNo) {
+			int noOfNight, int roomno, String guestEmail, String guestPhoneNo) {
 		super();
 		this.code = code;
 		this.noOfChildren = noOfChildren;
@@ -89,10 +107,10 @@ public class ReservationModel {
 	public void setGuestEmail(String guestEmail) {
 		this.guestEmail = guestEmail;
 	}
-	public long getGuestPhoneNo() {
+	public String getGuestPhoneNo() {
 		return guestPhoneNo;
 	}
-	public void setGuestPhoneNo(long guestPhoneNo) {
+	public void setGuestPhoneNo(String guestPhoneNo) {
 		this.guestPhoneNo = guestPhoneNo;
 	}
 	

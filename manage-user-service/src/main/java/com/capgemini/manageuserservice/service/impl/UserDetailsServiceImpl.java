@@ -17,6 +17,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	private UserRepository userRepository;
 	
 	@Override
+	//Taking the given user from the database and provide it for further authentication
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
 		//fetching user from database

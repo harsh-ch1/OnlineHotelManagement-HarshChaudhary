@@ -3,6 +3,9 @@ package com.capgemini.makereservationservice.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
+
+import javax.validation.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -23,6 +26,7 @@ public class ReservationServiceImpl implements ReservationService {
 	private ReservationRepository reservationRepository;
 	
 	public BookData doReservation(ReservationModel reservation) {
+		validateEntity(reservation);
 		Random rd = new Random();
 		reservation.setCode(rd.nextInt(Integer.MAX_VALUE));
 		Reservation reserved=reservationRepository.save(reservationMapper.mapDtoToEntity(reservation));
@@ -48,4 +52,20 @@ public class ReservationServiceImpl implements ReservationService {
 		}
 		return modelList;
 	}
+	private void validateEntity(ReservationModel reservation) {
+		List<String> errorMessage = new ArrayList<>();
+		Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+
+		Set<ConstraintViolation<ReservationModel>> constraintViolations = validator.validate(reservation);
+
+		for (ConstraintViolation<ReservationModel> constraintViolation : constraintViolations) {
+			errorMessage.add(constraintViolation.getMessage());
+		}
+
+		if (errorMessage.size() > 0) {
+			throw new ConstraintViolationException(constraintViolations);
+		}
+
+	}
+
 }

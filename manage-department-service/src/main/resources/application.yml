@@ -17,4 +17,4 @@ logging:
   level:
     com:
       capgemini:
-        managedepartmentservice: TRACE
+        managedepartmentservice: INFO

@@ -1,5 +1,7 @@
 package com.capgemini.manageroomservice.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -22,41 +24,50 @@ import com.capgemini.manageroomservice.service.RoomService;
 @RequestMapping("/ManageRoom")
 public class RoomController {
 	
+	Logger logger = LoggerFactory.getLogger(RoomController.class);
+	
 	@Autowired
 	private RoomService roomService;
 	
 	@GetMapping(value = "/HelloTest", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> helloTest() {
-			return ResponseEntity.ok("Hello World 7");
+		logger.info("HelloTest has been accessed");	
+		return ResponseEntity.ok("Hello World 7");
 	}
 	
 	@PostMapping(value = "/addroom", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<RoomModel> addRoom(@RequestBody AddRoomModel room) {
+		logger.info("Add room has been accessed");	
 		return ResponseEntity.ok(roomService.addRoomService(room));
 	}
 	
 	@PutMapping(value="/updateroom", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<RoomModel> updateRoom(@RequestBody AddRoomModel room){
+		logger.info("Update room has been accessed");	
 		return ResponseEntity.ok(roomService.updateRoomService(room));
 	}
 	
 	@DeleteMapping(value = "/deleteroom/{roomno}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> deleteRoom(@PathVariable int roomno) {
+		logger.info("Delete room has been accessed");	
 		return ResponseEntity.ok(roomService.deleteRoomService(roomno));
 	}
 	
 	@PutMapping(value="/setrates", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> setrates(@RequestBody SetRatesModel room){
+		logger.info("Set rate room has been accessed");	
 		return ResponseEntity.ok(roomService.setRatesService(room));
 	}
 	@PostMapping(value="/bookedroom", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 		public ResponseEntity<String> bookedRoom(@RequestBody BookData bookData){
-			return ResponseEntity.ok(roomService.bookedRoom(bookData));
+		logger.info("Get Booked room has been accessed");		
+		return ResponseEntity.ok(roomService.bookedRoom(bookData));
 		}
 	
 	@GetMapping(value = "/viewroom/{roomno}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<RoomModel> viewRoom(@PathVariable int roomno) {
-			return ResponseEntity.ok(roomService.viewroom(roomno));
+		logger.info("View room has been accessed");		
+		return ResponseEntity.ok(roomService.viewroom(roomno));
 	}
 	
 }

@@ -3,6 +3,8 @@ package com.capgemini.managestaffservice.controller;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -25,6 +27,8 @@ import com.capgemini.managestaffservice.service.StaffService;
 @RequestMapping("/ManageStaff")
 public class StaffController {
 	
+	Logger logger = LoggerFactory.getLogger(StaffController.class);
+	
 	
 	@Autowired
 	private StaffService staffService;
@@ -34,7 +38,8 @@ public class StaffController {
 	
 	@GetMapping(value = "/HelloTest", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> helloTest() {
-			return ResponseEntity.ok("Hello World 3");
+		logger.info("HelloTest has been accessed");	
+		return ResponseEntity.ok("Hello World 3");
 	}
 	
 	@PostMapping(value = "/addstaff", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -49,7 +54,7 @@ public class StaffController {
 		message.setMessage(str.toString());
 		message.setMessageDate(new Date());
     	template.convertAndSend(MqConfig.EXCHANGE,MqConfig.ROUTING_KEY, message);
-
+    	logger.info("Add Staff has been accessed");
 		return ResponseEntity.ok(model);
 	}
 	
@@ -65,7 +70,7 @@ public class StaffController {
 		message.setMessage(str.toString());
 		message.setMessageDate(new Date());
     	template.convertAndSend(MqConfig.EXCHANGE,MqConfig.ROUTING_KEY, message);
-
+    	logger.info("Update Staff has been accessed");
 		return ResponseEntity.ok(model);
 	}
 	
@@ -79,20 +84,23 @@ public class StaffController {
 		message.setMessage(str.toString());
 		message.setMessageDate(new Date());
     	template.convertAndSend(MqConfig.EXCHANGE,MqConfig.ROUTING_KEY, message);
-
+    	logger.info("Delete Staff has been accessed");
 		return ResponseEntity.ok(staffService.deleteStaffService(staff.getCode()));
 	}
 	@GetMapping(value = "/viewstaff", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<StaffModel> viewStaffbyId(@RequestBody StaffModel staff) {
+		logger.info("View Staff by code has been accessed");
 		return ResponseEntity.ok(staffService.viewStaffService(staff.getCode()));
 	}
 	@GetMapping(value = "/viewstaff", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity <List<StaffModel>> viewAll() {
+		logger.info("View all Staff has been accessed");
 		return ResponseEntity.ok(staffService.viewAllList());
 	}
 
 	@GetMapping(value="/reportdata", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity <StaffList> staffreport(){
+		logger.info("Staff Report Data has been accessed");
 		return ResponseEntity.ok(staffService.generateReport());
 	}
 

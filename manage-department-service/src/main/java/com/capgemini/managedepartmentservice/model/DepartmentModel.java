@@ -16,7 +16,7 @@ public class DepartmentModel {
 
 	@NotBlank(message = "name is mandatory")
 	@Size(min = 3, max = 14, message = "criteria does not match")
-	private String Name;
+	private String name;
 
 	@NotBlank(message = "hod name is mandatory")
 	@Size(min = 3, max = 14)
@@ -32,11 +32,11 @@ public class DepartmentModel {
 	private int sizeOfDepartment;
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public String getHodName() {

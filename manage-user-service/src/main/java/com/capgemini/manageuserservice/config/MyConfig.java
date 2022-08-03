@@ -46,14 +46,16 @@ public class MyConfig extends WebSecurityConfigurerAdapter{
 	public DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
 		daoAuthenticationProvider.setUserDetailsService(this.getUserDetailsService());
+		//checking the password the userdetails getting from above line and then returning result
 		daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
 		return daoAuthenticationProvider;
 	}
 
 	
-	//Configure method
+	//Configure method to authenticate the auth request
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		//for authentication from database we use (authenticationProvider)
 		auth.authenticationProvider(authenticationProvider());
 	}
 
@@ -61,15 +63,15 @@ public class MyConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		//IMP for Previous Implementation
-		//http.authorizeRequests().antMatchers("/owner/**").hasRole("OWNER")
-		//.antMatchers("/user/**").hasRole("user")
-		//.antMatchers("/**").permitAll().and().formLogin().and().csrf().disable();
+		http.authorizeRequests().antMatchers("/owner/**").hasRole("OWNER")
+		.antMatchers("/user/**").hasRole("user")
+		.antMatchers("/**").permitAll().and().formLogin().and().csrf().disable();
 		
-		http.csrf().disable().authorizeRequests().antMatchers("/authenticate").permitAll()
-		.anyRequest().authenticated()
-		.and().sessionManagement()
-		.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-	http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+		//http.csrf().disable().authorizeRequests().antMatchers("/authenticate").permitAll()
+		//.anyRequest().authenticated()
+		//.and().sessionManagement()
+		//.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+	//http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 	
 	

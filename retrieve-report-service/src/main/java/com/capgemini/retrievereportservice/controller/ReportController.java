@@ -2,6 +2,8 @@ package com.capgemini.retrievereportservice.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
@@ -28,6 +30,8 @@ import com.capgemini.retrievereportservice.service.StaffReportService;
 @RestController
 @RequestMapping("/RetrieveReport")
 public class ReportController {
+	
+	Logger logger = LoggerFactory.getLogger(ReportController.class);
 
 	@Autowired
 	private StaffReportService staffReportService;
@@ -40,12 +44,14 @@ public class ReportController {
 
 	@GetMapping(value = "/HelloTest", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> helloTest() {
+		logger.info("Report HelloTest has been accessed");
 			return ResponseEntity.ok("Hello World-5");
 	}
 	
 	@GetMapping(value = "/dbtest", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<StaffReportModel>> dbTest() {
-			return ResponseEntity.ok(staffReportService.getStaffPaymentService());
+		logger.info("DBTesting has been accessed");	
+		return ResponseEntity.ok(staffReportService.getStaffPaymentService());
 	}
 	
 	@GetMapping(value="/generatestaffreport")
@@ -61,9 +67,10 @@ public class ReportController {
 		headers.add("Cache-Control","no-cache, no-store, must-revalidate");
 		headers.add("Pragma","no-cache");
 		headers.add("Expires","0");
-		
+		logger.info("Generate Staff Report has been accessed");
 		return ResponseEntity.ok().headers(headers).contentLength(file.length()).contentType(MediaType.parseMediaType("application/txt")).body(resource);
 		}catch(Exception e) {
+			logger.info("Error in report has been generated");
 			return new ResponseEntity<>("error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
@@ -81,9 +88,10 @@ public class ReportController {
 			headers.add("Cache-Control","no-cache, no-store, must-revalidate");
 			headers.add("Pragma","no-cache");
 			headers.add("Expires","0");
-			
+			logger.info("Generate Income Report has been accessed");
 			return ResponseEntity.ok().headers(headers).contentLength(file.length()).contentType(MediaType.parseMediaType("application/txt")).body(resource);
 		}catch(Exception e) {
+			logger.info("Error in report has been generated");
 			return new ResponseEntity<>("error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

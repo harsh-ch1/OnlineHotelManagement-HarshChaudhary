@@ -3,6 +3,8 @@ package com.capgemini.manageinventoryservice.controller;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -25,6 +27,8 @@ import com.capgemini.manageinventoryservice.service.InventoryService;
 @RequestMapping("/manager/ManageInventory")
 public class InventoryController {
 	
+	Logger logger = LoggerFactory.getLogger(InventoryController.class);
+	
 	@Autowired
 	private InventoryService inventoryService;
 	
@@ -33,6 +37,7 @@ public class InventoryController {
 	
 	@GetMapping(value = "/HelloTest", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> helloTest() {
+		logger.info("HelloTest has been accessed");
 			return ResponseEntity.ok("Hello Manager ji");
 	}
 	
@@ -48,7 +53,7 @@ public class InventoryController {
 		message.setMessage(str.toString());
 		message.setMessageDate(new Date());
     	template.convertAndSend(MqConfig.EXCHANGE,MqConfig.ROUTING_KEY, message);
-
+    	logger.info("Add Inventory has been accessed");
 		return ResponseEntity.ok(model);
 	}
 	
@@ -63,7 +68,7 @@ public class InventoryController {
 		message.setMessage(str.toString());
 		message.setMessageDate(new Date());
     	template.convertAndSend(MqConfig.EXCHANGE,MqConfig.ROUTING_KEY, message);
-
+    	logger.info("Update Inventory has been accessed");
 		return ResponseEntity.ok(model);
 	}
 	
@@ -77,16 +82,19 @@ public class InventoryController {
 		message.setMessage(str.toString());
 		message.setMessageDate(new Date());
     	template.convertAndSend(MqConfig.EXCHANGE,MqConfig.ROUTING_KEY, message);
+    	logger.info("Delete Inventory has been accessed");
     	return ResponseEntity.ok(inventoryService.deleteInvent(id));
 	}
 	
 	@GetMapping(value = "/viewinventory", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<InventoryModel> findInventByName(@RequestBody InventoryModel inventory) {
+		logger.info("View Inventory has been accessed");
 		return ResponseEntity.ok(inventoryService.viewInventByName(inventory.getItemname()));
 		
 	}
 	@GetMapping(value = "/viewall", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity <List<InventoryModel>> viewAll() {
+		logger.info("View All Inventory has been accessed");
 		return ResponseEntity.ok(inventoryService.viewAll());
 		
 	}

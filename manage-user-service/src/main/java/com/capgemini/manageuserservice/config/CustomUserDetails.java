@@ -19,6 +19,7 @@ public class CustomUserDetails implements UserDetails{
 	}
 
 	@Override
+	//to return a collection(In case multiple roles) otherwise single role of the authorities
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 
 		SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(user.getRole());

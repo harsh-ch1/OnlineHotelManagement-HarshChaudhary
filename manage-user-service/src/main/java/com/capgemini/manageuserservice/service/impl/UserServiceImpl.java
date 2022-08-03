@@ -1,5 +1,9 @@
 package com.capgemini.manageuserservice.service.impl;
 
+import java.util.*;
+
+import javax.validation.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -21,6 +25,7 @@ public class UserServiceImpl implements UserService{
 	private BCryptPasswordEncoder passwordEncoder;
 	
 	public UserModel addUserService(UserModel user) {
+		validateEntity(user);
 		User userEntity= userRepository.save(userMapper.mapDtoToEntity(user));
 		return userMapper.mapEntityToDto(userEntity);
 	}
@@ -50,5 +55,22 @@ public class UserServiceImpl implements UserService{
 		User user = userRepository.findByUsername(username);
 		return userMapper.mapEntityToDto(user);
 	}
+	
+	private void validateEntity(UserModel user) {
+		List<String> errorMessage = new ArrayList<>();
+		Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+
+		Set<ConstraintViolation<UserModel>> constraintViolations = validator.validate(user);
+
+		for (ConstraintViolation<UserModel> constraintViolation : constraintViolations) {
+			errorMessage.add(constraintViolation.getMessage());
+		}
+
+		if (errorMessage.size() > 0) {
+			throw new ConstraintViolationException(constraintViolations);
+		}
+
+	}
+
 
 }
