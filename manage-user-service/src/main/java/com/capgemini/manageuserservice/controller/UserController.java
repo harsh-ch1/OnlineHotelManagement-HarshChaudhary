@@ -27,6 +27,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@SuppressWarnings("unused")
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
@@ -54,10 +55,4 @@ public class UserController {
 		return ResponseEntity.ok(userService.deleteUserService(username));
 	}
 	
-	@GetMapping(value = "/checkuser/{username}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<UserModel> checkUser(@PathVariable String username ) {
-		logger.info("Check user has been accessed");
-		return ResponseEntity.ok(userService.checkUser(username));
-		
-	}
 }

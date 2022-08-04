@@ -32,7 +32,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
     			"It manages all the reservations which are done in the Hotel.",
     			"1.0",
     			"Free to use",
-    			new springfox.documentation.service.Contact("Harsh Chaudhary","http://localhost:8086","pheonixvltr@gmail.com"),
+    			new springfox.documentation.service.Contact("Harsh Chaudhary","http://localhost:8086/MakeReservation/HelloTest","pheonixvltr@gmail.com"),
     			"API Licence",
     			"http://localhost:8086",
     			Collections.emptyList());

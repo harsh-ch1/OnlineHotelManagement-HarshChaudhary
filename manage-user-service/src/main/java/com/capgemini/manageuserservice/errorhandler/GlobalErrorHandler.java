@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ControllerAdvice
 public class GlobalErrorHandler {
 	
+	@SuppressWarnings("rawtypes")
 	@ExceptionHandler(ConstraintViolationException.class)
 	@ResponseBody
 	public ResponseError handleCustomException(ConstraintViolationException ex)

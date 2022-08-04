@@ -16,14 +16,13 @@ import com.capgemini.managedepartmentservice.repository.DepartmentRepository;
 
 @SpringBootTest
 class ManageDepartmentServiceApplicationTests {
-	
+
 	@Autowired
 	DepartmentRepository repository;
 
 	@Test
 	@Order(1)
-	public void testAdd()
-	{
+	public void testAdd() {
 		Department department = new Department();
 		department.setId(101);
 		department.setName("Harsh");
@@ -40,39 +39,35 @@ class ManageDepartmentServiceApplicationTests {
 		repository.save(department);
 		assertNotNull(repository.findById(101));
 	}
-	
+
 	@Test
 	@Order(2)
-	public void testUpdate()
-	{
-	  Department department = repository.findById(102);
-	  department.setSizeOfDepartment(40);
-	  repository.save(department);
-	  assertNotEquals(20, repository.findById(102).getSizeOfDepartment());  
+	public void testUpdate() {
+		Department department = repository.findById(102);
+		department.setSizeOfDepartment(40);
+		repository.save(department);
+		assertNotEquals(20, repository.findById(102).getSizeOfDepartment());
 	}
-	
+
 	@Test
 	@Order(3)
-	public void testView()
-	{
-	
+	public void testView() {
+
 		assertEquals("Harsh", repository.findById(101).getName());
 	}
-	
+
 	@Test
 	@Order(4)
-	public void testViewAll()
-	{
+	public void testViewAll() {
 		List<Department> list = repository.findAll();
 		assertThat(list).size().isGreaterThan(0);
 	}
-	
+
 	@Test
 	@Order(8)
-	public void testDelete()
-	{
+	public void testDelete() {
 		repository.deleteById(101);
 		assertThat(repository.existsById(101)).isFalse();
 	}
-	
+
 }

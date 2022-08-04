@@ -9,21 +9,22 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.capgemini.manageuserservice.entity.User;
 
-public class CustomUserDetails implements UserDetails{
-	
+public class CustomUserDetails implements UserDetails {
+
 	private User user;
-	
+
 	public CustomUserDetails(User user) {
 		super();
 		this.user = user;
 	}
 
 	@Override
-	//to return a collection(In case multiple roles) otherwise single role of the authorities
+	// to return a collection(In case multiple roles) otherwise single role of the
+	// authorities
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 
 		SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(user.getRole());
-		
+
 		return List.of(simpleGrantedAuthority);
 	}
 
@@ -34,9 +35,8 @@ public class CustomUserDetails implements UserDetails{
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
 		return user.getUsername();
-		
+
 	}
 
 	@Override
@@ -59,5 +59,4 @@ public class CustomUserDetails implements UserDetails{
 		return true;
 	}
 
-	
 }

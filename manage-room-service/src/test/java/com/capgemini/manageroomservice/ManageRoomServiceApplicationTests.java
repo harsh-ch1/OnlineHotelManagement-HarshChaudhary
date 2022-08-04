@@ -21,14 +21,14 @@ class ManageRoomServiceApplicationTests {
 
 	@Autowired
 	RoomRepository repo;
-	
+
 	@SuppressWarnings("deprecation")
 	@Test
 	@Order(1)
 	public void addTest() {
-		Date d1 = new Date(2022-07-05);
-		Time t1 = new Time(05,30,25);
-		Time t2 = new Time(06,30,25);
+		Date d1 = new Date(2022 - 07 - 05);
+		Time t1 = new Time(05, 30, 25);
+		Time t2 = new Time(06, 30, 25);
 		Room room = new Room();
 		room.setRoomno(100);
 		room.setType("Standard");
@@ -41,57 +41,49 @@ class ManageRoomServiceApplicationTests {
 		room.setFirst_night_rate(800);
 		repo.save(room);
 		assertNotNull(repo.findById(100));
-	
+
 	}
 
 	@Test
 	@Order(2)
-	public void updateTest()
-	{
+	public void updateTest() {
 		Room room = repo.findById(100);
 		room.setCapacity(6);
 		repo.save(room);
 		assertEquals(6, repo.findById(100).getCapacity());
 	}
-	
+
 	@Test
 	@Order(3)
-	public void viewByIdTest()
-	{
-		assertEquals("Standard" ,repo.findById(100).getType());
+	public void viewByIdTest() {
+		assertEquals("Standard", repo.findById(100).getType());
 	}
-	
+
 	@Test
 	@Order(4)
-	public void viewAllTest()
-	{
+	public void viewAllTest() {
 		List<Room> list = repo.findAll();
 		assertThat(list).size().isGreaterThan(0);
 	}
-	
+
 	@Test
 	@Order(5)
-	public void viewAllByTypeAndCapacityTest()
-	{
+	public void viewAllByTypeAndCapacityTest() {
 		List<Room> list = repo.findAllByTypeAndCapacity("Standard", 6);
 		assertThat(list).size().isGreaterThan(0);
 	}
-	
+
 	@Test
 	@Order(6)
-	public void viewByStatusTest()
-	{
+	public void viewByStatusTest() {
 		List<Room> list = repo.findByStatus("vacant");
 		assertThat(list).size().isGreaterThanOrEqualTo(0);
 	}
-	
+
 	@Test
 	@Order(7)
-	public void deleteTest()
-	{
+	public void deleteTest() {
 		repo.deleteById(100);
 		assertThat(repo.existsById(100)).isFalse();
 	}
 }
-
-

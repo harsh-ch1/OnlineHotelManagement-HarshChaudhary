@@ -20,7 +20,7 @@ import com.capgemini.managedepartmentservice.model.DepartmentModel;
 import com.capgemini.managedepartmentservice.service.DepartmentService;
 
 @RestController
-@RequestMapping("/owner/ManageDepartment")
+@RequestMapping("/ManageDepartment")
 public class DepartmentController {
 	
 	Logger logger = LoggerFactory.getLogger(DepartmentController.class);

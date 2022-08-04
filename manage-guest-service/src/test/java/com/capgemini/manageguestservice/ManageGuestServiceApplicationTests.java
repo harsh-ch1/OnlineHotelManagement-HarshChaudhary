@@ -4,11 +4,9 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.sql.Date;
 import java.util.List;
 
 import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -21,22 +19,21 @@ class ManageGuestServiceApplicationTests {
 
 	@Autowired
 	GuestRepository repo;
-	
+
 	@Test
 	@Order(1)
 	public void addTest() {
-		
+
 		Guest guest = new Guest();
-		Address address = new Address(); 
-		
-	
+		Address address = new Address();
+
 		address.setId(1);
 		address.setHouseNo("H.no 20");
-        address.setStreetName("Kawad road");
-        address.setCity("Kanth");
-        address.setState("U.P");
-        address.setPincode(243601);
-        address.setCountry("India");
+		address.setStreetName("Kawad road");
+		address.setCity("Kanth");
+		address.setState("U.P");
+		address.setPincode(243601);
+		address.setCountry("India");
 		guest.setId(101);
 		guest.setFirstName("Harsh");
 		guest.setLastName("Chaudhary");
@@ -47,15 +44,14 @@ class ManageGuestServiceApplicationTests {
 		guest.setAddress(address);
 		repo.save(guest);
 		assertNotNull(repo.findById(101));
-		
-	
+
 		address.setId(2);
 		address.setHouseNo("H.no 20");
-        address.setStreetName("Kawad road");
-        address.setCity("Kanth");
-        address.setState("U.P");
-        address.setPincode(243601);
-        address.setCountry("India");
+		address.setStreetName("Kawad road");
+		address.setCity("Kanth");
+		address.setState("U.P");
+		address.setPincode(243601);
+		address.setCountry("India");
 		guest.setId(102);
 		guest.setFirstName("Harsh");
 		guest.setLastName("Chaudhary");
@@ -66,33 +62,30 @@ class ManageGuestServiceApplicationTests {
 		guest.setAddress(address);
 		repo.save(guest);
 		assertNotNull(repo.findById(102));
-		
+
 	}
-	
+
 	@Test
 	@Order(2)
-	public void updateTest()
-	{
+	public void updateTest() {
 		Guest guest = repo.findById(101);
-		guest.setCompany("CAPGEMINI");;
+		guest.setCompany("CAPGEMINI");
+		;
 		repo.save(guest);
 		assertNotEquals("Capgemini", repo.findById(101).getCompany());
 	}
 
 	@Test
 	@Order(3)
-	public void viewTest()
-	{
-		assertEquals("Chaudhary",repo.findById(101).getLastName());
+	public void viewTest() {
+		assertEquals("Chaudhary", repo.findById(101).getLastName());
 	}
-	
+
 	@Test
 	@Order(4)
-	public void viewAllTest()
-	{
+	public void viewAllTest() {
 		List<Guest> list = repo.findAll();
-		assertThat(list).size().isGreaterThan(0); 
+		assertThat(list).size().isGreaterThan(0);
 	}
-	
 
 }

@@ -15,32 +15,32 @@ import com.capgemini.manageuserservice.repository.UserRepository;
 import com.capgemini.manageuserservice.service.UserService;
 
 @Component
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserMapper userMapper;
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
-	
+
 	public UserModel addUserService(UserModel user) {
 		validateEntity(user);
-		User userEntity= userRepository.save(userMapper.mapDtoToEntity(user));
+		User userEntity = userRepository.save(userMapper.mapDtoToEntity(user));
 		return userMapper.mapEntityToDto(userEntity);
 	}
-	
+
 	public UserModel updateUserService(UserModel user) {
-		User userEntity =userRepository.findByUsername(user.getUsername());
+		User userEntity = userRepository.findByUsername(user.getUsername());
 		userEntity.setUsername(user.getUsername());
 		userEntity.setName(user.getName());
-		//userEntity.setPassword(user.getPassword());
+		// userEntity.setPassword(user.getPassword());
 		userEntity.setPassword(passwordEncoder.encode(user.getPassword()));
 		userEntity.setRole(user.getRole());
-		userEntity=userRepository.save(userEntity);
+		userEntity = userRepository.save(userEntity);
 		return userMapper.mapEntityToDto(userEntity);
 	}
-	
+
 	public String deleteUserService(String username) {
 		try {
 			userRepository.deleteById(username);
@@ -50,12 +50,7 @@ public class UserServiceImpl implements UserService{
 		}
 		return "can't delete";
 	}
-	
-	public UserModel checkUser(String username) {
-		User user = userRepository.findByUsername(username);
-		return userMapper.mapEntityToDto(user);
-	}
-	
+
 	private void validateEntity(UserModel user) {
 		List<String> errorMessage = new ArrayList<>();
 		Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
@@ -71,6 +66,5 @@ public class UserServiceImpl implements UserService{
 		}
 
 	}
-
 
 }

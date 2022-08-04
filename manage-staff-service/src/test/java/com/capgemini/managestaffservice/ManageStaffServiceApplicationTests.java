@@ -20,7 +20,8 @@ class ManageStaffServiceApplicationTests {
 
 	@Autowired
 	StaffRepository repo;
-	
+
+	@SuppressWarnings("deprecation")
 	@Test
 	@Order(1)
 	public void addTest() {
@@ -29,11 +30,11 @@ class ManageStaffServiceApplicationTests {
 		Address address = new Address();
 		address.setId(1);
 		address.setHouseNo("H.no 20");
-        address.setStreetName("Kawad road");
-        address.setCity("Kanth");
-        address.setState("U.P");
-        address.setPincode(243601);
-        address.setCountry("India");
+		address.setStreetName("Kawad road");
+		address.setCity("Kanth");
+		address.setState("U.P");
+		address.setPincode(243601);
+		address.setCountry("India");
 		staff.setCode(101);
 		staff.setFirstname("Harsh");
 		staff.setLastname("Chaudhary");
@@ -45,17 +46,16 @@ class ManageStaffServiceApplicationTests {
 		staff.setAddress(address);
 		repo.save(staff);
 		assertNotNull(repo.findById(101));
-				
+
 		Date d2 = new Date(2000, 11, 21);
-		
-		
+
 		address.setId(2);
 		address.setHouseNo("H.no 20");
-        address.setStreetName("Kawad road");
-        address.setCity("Kanth");
-        address.setState("U.P");
-        address.setPincode(243601);
-        address.setCountry("India");
+		address.setStreetName("Kawad road");
+		address.setCity("Kanth");
+		address.setState("U.P");
+		address.setPincode(243601);
+		address.setCountry("India");
 		staff.setCode(102);
 		staff.setFirstname("Harsh");
 		staff.setLastname("Chaudhary");
@@ -68,42 +68,38 @@ class ManageStaffServiceApplicationTests {
 		repo.save(staff);
 		assertNotNull(repo.findById(102));
 	}
-	
+
 	@Test
 	@Order(2)
-	public void updateTest()
-	{
-		
-      Staff staff = repo.findById(101);
-      Address address = new Address();
-      staff.setAge(22);
-      staff.setAddress(address);
-      address.setCity("Darbhanga");
-      repo.save(staff);
-      assertNotEquals(21, repo.findById(101).getAge());
-	assertNotEquals("Kanth", repo.findById(101).getAddress().getCity());
+	public void updateTest() {
+
+		Staff staff = repo.findById(101);
+		Address address = new Address();
+		staff.setAge(22);
+		staff.setAddress(address);
+		address.setCity("Darbhanga");
+		repo.save(staff);
+		assertNotEquals(21, repo.findById(101).getAge());
+		assertNotEquals("Kanth", repo.findById(101).getAddress().getCity());
 	}
-	
+
 	@Test
 	@Order(3)
-	public void viewTest()
-	{
+	public void viewTest() {
 		Staff staff = repo.findById(101);
 		assertEquals("DEV", staff.getOccupation());
 	}
-	
+
 	@Test
 	@Order(4)
-	public void viewAllTest()
-	{
+	public void viewAllTest() {
 		List<Staff> list = repo.findAll();
 		assertThat(list).size().isGreaterThan(0);
 	}
 
 	@Test
 	@Order(5)
-	public void deleteTest()
-	{
+	public void deleteTest() {
 		repo.deleteById(102);
 		assertThat(repo.existsById(102)).isFalse();
 	}

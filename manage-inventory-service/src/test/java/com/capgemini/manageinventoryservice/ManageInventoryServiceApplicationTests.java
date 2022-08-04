@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
-
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,61 +22,57 @@ import com.capgemini.manageinventoryservice.service.InventoryService;
 @TestMethodOrder(OrderAnnotation.class)
 class ManageInventoryServiceApplicationTests {
 
+	@SuppressWarnings("unused")
 	@Autowired
 	private InventoryService service;
-	
+
+	@SuppressWarnings("unused")
 	@Autowired
 	private InventoryMapper mapper;
-	
+
 	@Autowired
 	private InventoryRepository repository;
-	
+
 	@Test
 	@Order(1)
-	public void testAdd()
-	{	
+	public void testAdd() {
 		Inventory inventory = new Inventory();
 		inventory.setId(101);
 		inventory.setItemname("Chair");
 		inventory.setQuantity(5);
 		repository.save(inventory);
-        assertNotNull(repository.findById(101));
-		
-		
+		assertNotNull(repository.findById(101));
+
 	}
+
 	@Test
 	@Order(2)
-	public void testUpdate()
-	{
-      Inventory inven = repository.findById(101);
-      inven.setQuantity(11);
-      repository.save(inven);
-      assertNotEquals(10,repository.findById(101).getQuantity());
-	
-	}
-	
+	public void testUpdate() {
+		Inventory inven = repository.findById(101);
+		inven.setQuantity(11);
+		repository.save(inven);
+		assertNotEquals(10, repository.findById(101).getQuantity());
 
-	
+	}
+
 	@Test
 	@Order(3)
-	public void testView()
-	{
-	Inventory inven = repository.findById(101);
-	assertEquals("Chair", inven.getItemname());
+	public void testView() {
+		Inventory inven = repository.findById(101);
+		assertEquals("Chair", inven.getItemname());
 	}
+
 	@Test
 	@Order(4)
-	public void testViewAll()
-	{
+	public void testViewAll() {
 		List<Inventory> list = repository.findAll();
 		assertThat(list).size().isGreaterThan(0);
-		
+
 	}
 
 	@Test
 	@Order(5)
-	public void testDelete()
-	{
+	public void testDelete() {
 		repository.deleteById(101);
 		assertThat(repository.existsById(101)).isFalse();
 	}

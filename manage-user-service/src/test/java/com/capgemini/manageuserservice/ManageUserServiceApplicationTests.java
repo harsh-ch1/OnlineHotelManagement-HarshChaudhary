@@ -14,7 +14,7 @@ class ManageUserServiceApplicationTests {
 
 	@Autowired
 	UserRepository repo;
-	
+
 	@Test
 	public void addTest() {
 		User user = new User();
@@ -23,30 +23,27 @@ class ManageUserServiceApplicationTests {
 		user.setPassword("H@123");
 		user.setRole("ROLE_OWNER");
 		repo.save(user);
-		assertNotNull(repo.findByUsername("h@capegemini.com"));	
-	   	 
-	}
-	
-	@Test
-	public void updateTest()
-	{
-		User user = repo.findByUsername("h@capegemini.com");
-		user.setRole("ROLE_MANAGER");
-		repo.save(user);
-		assertNotEquals("OWNER",repo.findByUsername("h@capegemini.com").getRole());
+		assertNotNull(repo.findByUsername("h@capegemini.com"));
+
 	}
 
 	@Test
-	public void viewTest()
-	{
-		assertEquals("ROLE_OWNER",repo.getUserByUsername("h@capegemini.com").getName());
+	public void updateTest() {
+		User user = repo.findByUsername("h@capegemini.com");
+		user.setRole("ROLE_MANAGER");
+		repo.save(user);
+		assertNotEquals("OWNER", repo.findByUsername("h@capegemini.com").getRole());
 	}
-	
+
 	@Test
-	public void deleteTest()
-	{
+	public void viewTest() {
+		assertEquals("ROLE_OWNER", repo.getUserByUsername("h@capegemini.com").getName());
+	}
+
+	@Test
+	public void deleteTest() {
 		repo.deleteById("h@capegemini.com");
 		assertThat(repo.existsById("h@capegemini.com")).isFalse();
-		
+
 	}
 }
