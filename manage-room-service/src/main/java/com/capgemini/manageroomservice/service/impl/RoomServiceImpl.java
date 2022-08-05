@@ -32,7 +32,6 @@ public class RoomServiceImpl implements RoomService {
 		roomModel.setType(room.getType());
 		roomModel.setCapacity(room.getCapacity());
 		roomModel.setStatus(room.getStatus());
-		roomModel.setRoom_rate(room.getRoom_rate());
 		Date date= new Date(122, 0, 1);
 		roomModel.setBookedtill(date);
 		Room roomEntity= roomRepository.save(roomMapper.mapDtoToEntity(roomModel));

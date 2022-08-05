@@ -59,8 +59,12 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
 
 		// IMP for Previous Implementation
 		http.authorizeRequests().antMatchers("/owner/**").hasRole("OWNER").antMatchers("/user/**").hasRole("user")
-				.antMatchers("/LoginController/**").hasAnyRole("OWNER", "MANAGER", "RECEPTIONIST").and().formLogin()
-				.and().csrf().disable();
+				.antMatchers("/ManageLogin/**").hasAnyRole("OWNER", "MANAGER", "RECEPTIONIST").and().formLogin()
+				.and().httpBasic().and().csrf().disable();
+				http.cors().disable();
+				
+		
+		//http.authorizeRequests().antMatchers("/**").permitAll().and().csrf().disable();
 
 	}
 

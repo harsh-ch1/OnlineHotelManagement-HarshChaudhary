@@ -19,12 +19,8 @@ public class SetRatesModel {
 	@Max(value = 6)
 	private int capacity;
 	@NotNull
-	@FutureOrPresent
-	@DateTimeFormat
 	private Time check_in_time;
 	@NotNull
-	@FutureOrPresent
-	@DateTimeFormat
 	private Time check_out_time;
 	@NotNull
 	@Min(value =500)

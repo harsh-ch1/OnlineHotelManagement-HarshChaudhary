@@ -1,0 +1,6 @@
+ Bill_id ,Room_No,Guest_Name,Bill_Date,Total_Bill
+" ? 1,23,36,60,374.00 ",404,Vasu Tyagi,Fri Aug 05 22:07:28 IST 2022,25016
+" ? 1,50,61,11,980.00 ",102,Manish Kumar,Fri Aug 05 22:34:43 IST 2022,21240
+,,,,
+ Total_Income ,Salaries_Paid,Profit,,
+" ? 46,256.00 ",70000,-23744,,

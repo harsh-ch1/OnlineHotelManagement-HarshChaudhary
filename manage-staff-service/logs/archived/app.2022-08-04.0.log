@@ -1,0 +1,6 @@
+2022-08-04 23:12:27,577 INFO com.capgemini.managestaffservice.ManageStaffServiceApplication [main] Starting ManageStaffServiceApplication using Java 17.0.2 on Harsh with PID 3288 (C:\Users\darsh\Downloads\Online Hotel Management System\manage-staff-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\manage-staff-service)
+2022-08-04 23:12:27,581 INFO com.capgemini.managestaffservice.ManageStaffServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-04 23:12:36,781 INFO com.capgemini.managestaffservice.ManageStaffServiceApplication [main] Started ManageStaffServiceApplication in 9.875 seconds (JVM running for 11.408)
+2022-08-04 23:40:51,088 INFO com.capgemini.managestaffservice.controller.StaffController [http-nio-8083-exec-1] HelloTest has been accessed
+2022-08-04 23:43:41,825 INFO com.capgemini.managestaffservice.controller.StaffController [http-nio-8083-exec-3] HelloTest has been accessed
+2022-08-04 23:46:36,979 INFO com.capgemini.managestaffservice.controller.StaffController [http-nio-8083-exec-5] HelloTest has been accessed

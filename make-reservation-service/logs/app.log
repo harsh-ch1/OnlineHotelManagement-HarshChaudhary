@@ -1,0 +1,20 @@
+2022-08-05 22:32:50,951 INFO com.capgemini.makereservationservice.MakeReservationServiceApplication [main] Started MakeReservationServiceApplication in 4.34 seconds (JVM running for 5.224)
+2022-08-05 22:34:03,358 INFO com.capgemini.makereservationservice.MakeReservationServiceApplication [main] Starting MakeReservationServiceApplication using Java 17.0.2 on Harsh with PID 17620 (C:\Users\darsh\Downloads\Online Hotel Management System\make-reservation-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\make-reservation-service)
+2022-08-05 22:34:03,360 INFO com.capgemini.makereservationservice.MakeReservationServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-05 22:34:07,612 INFO com.capgemini.makereservationservice.MakeReservationServiceApplication [main] Started MakeReservationServiceApplication in 4.852 seconds (JVM running for 5.826)
+2022-08-05 22:34:51,870 INFO com.capgemini.makereservationservice.controller.ReservationController [http-nio-8086-exec-1] Issue Bill has been accessed
+2022-08-05 22:47:42,484 INFO com.capgemini.makereservationservice.controller.ReservationController [http-nio-8086-exec-3] Report data for income has been accessed
+2022-08-05 23:56:10,585 ERROR com.netflix.discovery.DiscoveryClient [DiscoveryClient-HeartbeatExecutor-0] DiscoveryClient_MAKE-RESERVATION-SERVICE/host.docker.internal:make-reservation-service:8086 - was unable to send heartbeat!
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:893)
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1457)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)

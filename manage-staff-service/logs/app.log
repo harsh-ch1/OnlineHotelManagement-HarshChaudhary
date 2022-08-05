@@ -1,0 +1,18 @@
+2022-08-05 15:19:29,721 INFO com.capgemini.managestaffservice.ManageStaffServiceApplication [main] Started ManageStaffServiceApplication in 8.078 seconds (JVM running for 9.216)
+2022-08-05 15:22:41,562 INFO com.capgemini.managestaffservice.controller.StaffController [http-nio-8083-exec-3] Add Staff has been accessed
+2022-08-05 15:24:21,628 INFO com.capgemini.managestaffservice.controller.StaffController [http-nio-8083-exec-7] Update Staff has been accessed
+2022-08-05 15:28:12,418 INFO com.capgemini.managestaffservice.controller.StaffController [http-nio-8083-exec-4] Add Staff has been accessed
+2022-08-05 15:28:57,774 INFO com.capgemini.managestaffservice.controller.StaffController [http-nio-8083-exec-7] View Staff by code has been accessed
+2022-08-05 15:29:08,524 INFO com.capgemini.managestaffservice.controller.StaffController [http-nio-8083-exec-8] View Staff by code has been accessed
+2022-08-05 15:31:07,332 INFO com.capgemini.managestaffservice.controller.StaffController [http-nio-8083-exec-2] Add Staff has been accessed
+2022-08-05 15:31:19,778 INFO com.capgemini.managestaffservice.controller.StaffController [http-nio-8083-exec-6] Delete Staff has been accessed
+2022-08-05 15:31:19,841 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8083-exec-6] Cannot delete or update a parent row: a foreign key constraint fails (`staffdb`.`staffdetails`, CONSTRAINT `FKc80rtc3r1lifkkm6ps17djuql` FOREIGN KEY (`addressid`) REFERENCES `addressdetails` (`id`))
+2022-08-05 15:31:39,128 INFO com.capgemini.managestaffservice.controller.StaffController [http-nio-8083-exec-5] Delete Staff has been accessed
+2022-08-05 15:31:39,145 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8083-exec-5] Cannot delete or update a parent row: a foreign key constraint fails (`staffdb`.`staffdetails`, CONSTRAINT `FKc80rtc3r1lifkkm6ps17djuql` FOREIGN KEY (`addressid`) REFERENCES `addressdetails` (`id`))
+2022-08-05 15:32:34,293 INFO com.capgemini.managestaffservice.controller.StaffController [http-nio-8083-exec-4] Add Staff has been accessed
+2022-08-05 15:32:56,416 INFO com.capgemini.managestaffservice.controller.StaffController [http-nio-8083-exec-3] Delete Staff has been accessed
+2022-08-05 15:33:56,181 INFO com.capgemini.managestaffservice.controller.StaffController [http-nio-8083-exec-7] Update Staff has been accessed
+2022-08-05 20:49:10,549 INFO com.capgemini.managestaffservice.ManageStaffServiceApplication [main] Starting ManageStaffServiceApplication using Java 17.0.2 on Harsh with PID 27752 (C:\Users\darsh\Downloads\Online Hotel Management System\manage-staff-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\manage-staff-service)
+2022-08-05 20:49:10,557 INFO com.capgemini.managestaffservice.ManageStaffServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-05 20:49:16,205 INFO com.capgemini.managestaffservice.ManageStaffServiceApplication [main] Started ManageStaffServiceApplication in 6.125 seconds (JVM running for 7.108)
+2022-08-05 22:47:30,824 INFO com.capgemini.managestaffservice.controller.StaffController [http-nio-8083-exec-1] Staff Report Data has been accessed

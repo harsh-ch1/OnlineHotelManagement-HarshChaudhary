@@ -1,0 +1,4 @@
+2022-08-04 23:13:24,843 INFO com.capgemini.retrievereportservice.RetrieveReportServiceApplication [main] Starting RetrieveReportServiceApplication using Java 17.0.2 on Harsh with PID 24372 (C:\Users\darsh\Downloads\Online Hotel Management System\retrieve-report-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\retrieve-report-service)
+2022-08-04 23:13:24,847 INFO com.capgemini.retrievereportservice.RetrieveReportServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-04 23:13:30,729 INFO com.capgemini.retrievereportservice.RetrieveReportServiceApplication [main] Started RetrieveReportServiceApplication in 6.615 seconds (JVM running for 8.183)
+2022-08-04 23:47:13,261 INFO com.capgemini.retrievereportservice.controller.ReportController [http-nio-8084-exec-1] Report HelloTest has been accessed

@@ -1,0 +1,42 @@
+2022-08-05 14:14:19,689 INFO com.capgemini.retrievereportservice.RetrieveReportServiceApplicationTests [main] Starting RetrieveReportServiceApplicationTests using Java 17.0.2 on Harsh with PID 21708 (started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\retrieve-report-service)
+2022-08-05 14:14:19,696 INFO com.capgemini.retrievereportservice.RetrieveReportServiceApplicationTests [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-05 14:14:24,136 INFO com.capgemini.retrievereportservice.RetrieveReportServiceApplicationTests [main] Started RetrieveReportServiceApplicationTests in 5.031 seconds (JVM running for 6.765)
+2022-08-05 14:14:47,389 INFO com.capgemini.retrievereportservice.RetrieveReportServiceApplication [main] Starting RetrieveReportServiceApplication using Java 17.0.2 on Harsh with PID 15812 (C:\Users\darsh\Downloads\Online Hotel Management System\retrieve-report-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\retrieve-report-service)
+2022-08-05 14:14:47,397 INFO com.capgemini.retrievereportservice.RetrieveReportServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-05 14:14:50,978 INFO com.capgemini.retrievereportservice.RetrieveReportServiceApplication [main] Started RetrieveReportServiceApplication in 4.04 seconds (JVM running for 4.915)
+2022-08-05 20:49:27,905 INFO com.capgemini.retrievereportservice.RetrieveReportServiceApplication [main] Starting RetrieveReportServiceApplication using Java 17.0.2 on Harsh with PID 2008 (C:\Users\darsh\Downloads\Online Hotel Management System\retrieve-report-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\retrieve-report-service)
+2022-08-05 20:49:27,913 INFO com.capgemini.retrievereportservice.RetrieveReportServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-05 20:49:31,828 INFO com.capgemini.retrievereportservice.RetrieveReportServiceApplication [main] Started RetrieveReportServiceApplication in 4.4 seconds (JVM running for 5.324)
+2022-08-05 22:44:30,483 INFO com.capgemini.retrievereportservice.RetrieveReportServiceApplication [main] Starting RetrieveReportServiceApplication using Java 17.0.2 on Harsh with PID 16392 (C:\Users\darsh\Downloads\Online Hotel Management System\retrieve-report-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\retrieve-report-service)
+2022-08-05 22:44:30,485 INFO com.capgemini.retrievereportservice.RetrieveReportServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-05 22:44:34,505 INFO com.capgemini.retrievereportservice.RetrieveReportServiceApplication [main] Started RetrieveReportServiceApplication in 4.501 seconds (JVM running for 5.424)
+2022-08-05 22:47:31,336 INFO com.capgemini.retrievereportservice.controller.ReportController [http-nio-8084-exec-1] Generate Staff Report has been accessed
+2022-08-05 22:47:42,713 INFO com.capgemini.retrievereportservice.controller.ReportController [http-nio-8084-exec-2] Generate Income Report has been accessed
+2022-08-05 23:25:05,661 ERROR com.netflix.discovery.DiscoveryClient [DiscoveryClient-HeartbeatExecutor-0] DiscoveryClient_RETRIEVE-REPORT-SERVICE/host.docker.internal:retrieve-report-service:8084 - was unable to send heartbeat!
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:893)
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1457)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-08-05 23:25:35,688 ERROR com.netflix.discovery.DiscoveryClient [DiscoveryClient-HeartbeatExecutor-0] DiscoveryClient_RETRIEVE-REPORT-SERVICE/host.docker.internal:retrieve-report-service:8084 - was unable to send heartbeat!
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:893)
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1457)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)

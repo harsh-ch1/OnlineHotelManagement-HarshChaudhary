@@ -16,10 +16,7 @@ public class AddRoomModel {
 	private int capacity;
 	@NotBlank
 	private String status;
-	@NotNull
-	@Min(value = 500)
-	@Max(value = 100000)
-	private int room_rate;
+	
 	
 	public int getRoomno() {
 		return roomno;
@@ -45,12 +42,7 @@ public class AddRoomModel {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public int getRoom_rate() {
-		return room_rate;
-	}
-	public void setRoom_rate(int room_rate) {
-		this.room_rate = room_rate;
-	}
+	
 	
 	
 }

@@ -24,8 +24,7 @@ public class StaffModel {
 	private int salary;
 	
 	@NotNull
-	@PastOrPresent
-	@DateTimeFormat
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date joinedon;
 	
 	@NotNull
@@ -38,7 +37,7 @@ public class StaffModel {
 	
 	@NotBlank
 	@Email
-	@Pattern(regexp = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$",message = "criteria doesnt match")
+	@Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",message = "criteria doesnt match")
 	private String email;
 	private AddressModel address;
 	

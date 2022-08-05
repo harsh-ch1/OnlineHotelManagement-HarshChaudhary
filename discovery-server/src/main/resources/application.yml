@@ -2,5 +2,7 @@ eureka:
   client:
     fetch-registry: false
     register-with-eureka: false
+spring:
+    location: banner.txt
 server:
   port: 8761

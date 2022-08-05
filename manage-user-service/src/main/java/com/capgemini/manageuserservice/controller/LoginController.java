@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.capgemini.manageuserservice.service.impl.UserDetailsServiceImpl;
 
 @RestController
-@RequestMapping("/LoginController")
+@RequestMapping("/ManageLogin")
 public class LoginController {
 
 	@RequestMapping("/success")

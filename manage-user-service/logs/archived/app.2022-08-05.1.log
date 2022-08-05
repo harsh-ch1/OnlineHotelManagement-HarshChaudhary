@@ -1,0 +1,21 @@
+2022-08-05 14:14:08,332 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Started ManageUserServiceApplication in 5.389 seconds (JVM running for 6.315)
+2022-08-05 15:40:41,035 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-5] User HelloTest has been accessed
+2022-08-05 15:41:51,776 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-9] User HelloTest has been accessed
+2022-08-05 15:42:22,439 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-1] User HelloTest has been accessed
+2022-08-05 15:42:24,514 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-2] User HelloTest has been accessed
+2022-08-05 20:49:17,485 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Starting ManageUserServiceApplication using Java 17.0.2 on Harsh with PID 9256 (C:\Users\darsh\Downloads\Online Hotel Management System\manage-user-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\manage-user-service)
+2022-08-05 20:49:17,494 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-05 20:49:23,070 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Started ManageUserServiceApplication in 6.077 seconds (JVM running for 7.132)
+2022-08-05 23:05:47,510 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-1] User HelloTest has been accessed
+2022-08-05 23:08:32,496 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Starting ManageUserServiceApplication using Java 17.0.2 on Harsh with PID 19580 (C:\Users\darsh\Downloads\Online Hotel Management System\manage-user-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\manage-user-service)
+2022-08-05 23:08:32,499 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-05 23:08:38,532 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Started ManageUserServiceApplication in 6.55 seconds (JVM running for 7.503)
+2022-08-05 23:10:17,741 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-3] User HelloTest has been accessed
+2022-08-05 23:11:01,329 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-6] delete user has been accessed
+2022-08-05 23:11:10,047 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-9] delete user has been accessed
+2022-08-05 23:56:26,535 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Starting ManageUserServiceApplication using Java 17.0.2 on Harsh with PID 23420 (C:\Users\darsh\Downloads\Online Hotel Management System\manage-user-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\manage-user-service)
+2022-08-05 23:56:26,538 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-05 23:56:32,157 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Started ManageUserServiceApplication in 6.089 seconds (JVM running for 7.16)
+2022-08-05 23:57:06,587 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Starting ManageUserServiceApplication using Java 17.0.2 on Harsh with PID 1980 (C:\Users\darsh\Downloads\Online Hotel Management System\manage-user-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\manage-user-service)
+2022-08-05 23:57:06,591 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-05 23:57:12,857 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Started ManageUserServiceApplication in 6.813 seconds (JVM running for 7.849)

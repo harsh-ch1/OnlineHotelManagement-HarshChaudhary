@@ -16,43 +16,42 @@ import org.springframework.web.bind.annotation.RestController;
 import com.capgemini.manageguestservice.model.GuestModel;
 import com.capgemini.manageguestservice.service.GuestService;
 
-
-
-
 @RestController
 @RequestMapping("/ManageGuest")
 public class GuestController {
-	
+
 	Logger logger = LoggerFactory.getLogger(GuestController.class);
-	
+
 	@Autowired
 	private GuestService guestService;
-	
+
 	@GetMapping(value = "/HelloTest", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> helloTest() {
 		logger.info("HelloTest has been accessed");
-			return ResponseEntity.ok("Hello World 8");
+		return ResponseEntity.ok("Hello World 8");
 	}
-	
+
 	@PostMapping(value = "/addguest", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<GuestModel> addGuest(@RequestBody GuestModel guest) {
 		logger.info("Add Guest has been accessed");
 		return ResponseEntity.ok(guestService.addGuestService(guest));
 	}
-	@PutMapping(value="/updateguest", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<GuestModel> updateGuest(@RequestBody GuestModel guest){
+
+	@PutMapping(value = "/updateguest", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<GuestModel> updateGuest(@RequestBody GuestModel guest) {
 		logger.info("Update Guest has been accessed");
 		return ResponseEntity.ok(guestService.updateGuestService(guest));
 	}
-	@GetMapping(value = "/viewguest",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+
+	@GetMapping(value = "/viewguest", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<GuestModel> viewGuest(@RequestBody GuestModel guest) {
 		logger.info("View Guest has been accessed");
-			return ResponseEntity.ok(guestService.viewGuestService(guest.getId()));
+		return ResponseEntity.ok(guestService.viewGuestService(guest.getId()));
 	}
-	
+
 	@GetMapping(value = "/viewguest/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<GuestModel> viewGuest(@PathVariable String email) {
 		logger.info("View Guest by email has been accessed");
-			return ResponseEntity.ok(guestService.viewGuestService(email));
+		return ResponseEntity.ok(guestService.viewGuestService(email));
 	}
 }
