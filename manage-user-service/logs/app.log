@@ -10,3 +10,4 @@
 2022-08-06 00:36:09,592 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-7] delete user has been accessed
 2022-08-06 00:36:32,661 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-8] delete user has been accessed
 2022-08-06 00:43:39,670 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-1] Add user has been accessed
+2022-08-06 00:44:06,763 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-2] Add user has been accessed
