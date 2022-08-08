@@ -22,7 +22,8 @@ const Department =({department})=>{
                 <CardText>HOD Phone No. : {department.hodPhoneNo}</CardText>
                 
                 <Container className="text-center">
-                    <Button color="warning">Delete</Button>
+                    <Button style={{color: "white" , backgroundColor: "#003333"}}>Update</Button>
+                    <Button className="mx-2" style={{color: "white" , backgroundColor: "#999900"}}>Delete</Button>
                 </Container>
             </CardBody>
         </Card>

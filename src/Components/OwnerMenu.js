@@ -11,7 +11,7 @@ const OwnerMenu=()=>{
         <div>
 
         <ListGroup>
-            <Link className="list-group-item list-group-item-action" tag="a" to="/">
+            <Link className="list-group-item list-group-item-action" tag="a" to="/owner">
             <div class="dropdown-content">
                 <UncontrolledDropdown>
                 <DropdownToggle block outline className="text-center">
@@ -25,7 +25,7 @@ const OwnerMenu=()=>{
 
 
             
-            <ListGroupItem className="list-group-item list-group-item-action" tag="a" to="/">
+            <ListGroupItem className="list-group-item list-group-item-action" tag="a" to="/owner">
             
                 <div class="dropdown-content">
                 <UncontrolledDropdown>
@@ -34,15 +34,16 @@ const OwnerMenu=()=>{
                 </DropdownToggle>
                 <DropdownMenu >
                     <DropdownItem>
-                <Link className="list-group-item list-group-item-action" tag="a" to="/adddepartment">Add Department</Link>
+                <Link className="list-group-item list-group-item-action" tag="a" to="/owner/adddepartment">Add Department</Link>
+                
+                </DropdownItem>
+                    
+                <DropdownItem>
+                    <Link className="list-group-item list-group-item-action" tag="a" to="/owner/viewdepartmentbyid">View Department by id</Link>
                 
                 </DropdownItem>
                     <DropdownItem>
-                    <Link className="list-group-item list-group-item-action" tag="a" to="/adddepartment">update Department</Link>
-                
-                </DropdownItem>
-                    <DropdownItem>
-                    <Link className="list-group-item list-group-item-action" tag="a" to="/viewall">view Department</Link>
+                    <Link className="list-group-item list-group-item-action" tag="a" to="/owner/viewall">View All Department</Link>
                 
                 </DropdownItem>
                 
@@ -53,7 +54,8 @@ const OwnerMenu=()=>{
             </div>
             
             </ListGroupItem>
-            <Link className="list-group-item list-group-item-action" tag="a" to="/adddepartment">
+
+            <ListGroupItem className="list-group-item list-group-item-action" tag="a" to="/owner">
             
                 <div class="dropdown-content">
                 <UncontrolledDropdown>
@@ -62,15 +64,15 @@ const OwnerMenu=()=>{
                 </DropdownToggle>
                 <DropdownMenu >
                     <DropdownItem>
-                <Link className="list-group-item list-group-item-action" tag="a" to="/adddepartment">Add User</Link>
+                <Link className="list-group-item list-group-item-action" tag="a" to="/owner/adduser">Add User</Link>
                 
                 </DropdownItem>
                     <DropdownItem>
-                    <Link className="list-group-item list-group-item-action" tag="a" to="/adddepartment">update User</Link>
+                    <Link className="list-group-item list-group-item-action" tag="a" to="/owner/updateuser">update User</Link>
                 
                 </DropdownItem>
                     <DropdownItem>
-                    <Link className="list-group-item list-group-item-action" tag="a" to="/viewall">Delete User</Link>
+                    <Link className="list-group-item list-group-item-action" tag="a" to="/owner/deleteuser">Delete User</Link>
                 
                 </DropdownItem>
                 
@@ -80,11 +82,11 @@ const OwnerMenu=()=>{
                 </UncontrolledDropdown>
             </div>
             
-            </Link>
+            </ListGroupItem>
             
             
 
-            <Link className="list-group-item list-group-item-action" tag="a" to="/">
+            <Link className="list-group-item list-group-item-action" tag="a" to="/owner/retrievereport">
             <div class="dropdown-content">
                 <UncontrolledDropdown>
                 <DropdownToggle block outline className="text-center">
@@ -98,7 +100,10 @@ const OwnerMenu=()=>{
         </ListGroup>
 
         <Container className="text-center my-5" >
-            <Button color="danger" >Logout</Button>
+        <Link className="button" tag="a" to="/owner/notifications">
+            <Button  className="col-4" style={{color: "white" , backgroundColor: "#330033"}}>Notifications</Button><br></br>
+            </Link>
+            <Button  color="danger" className="my-3 col-4">Logout</Button>
         </Container>
 
         </div>

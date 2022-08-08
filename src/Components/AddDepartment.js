@@ -8,6 +8,7 @@ import Department from "./Department";
 const AddDepartment=()=>{
     return (
         <div>
+            
             <h1 className="text-center my-3">Fill Department Details</h1>
             <Form>
                 <FormGroup>
@@ -54,7 +55,7 @@ const AddDepartment=()=>{
                 </FormGroup>
                 <Container className="text-center">
                     <Button color="success">Submit</Button>
-                    <Button color="dark ">clear</Button>
+                    <Button color="dark " style={{margin:8}}>clear</Button>
                 </Container>
             </Form>
 
