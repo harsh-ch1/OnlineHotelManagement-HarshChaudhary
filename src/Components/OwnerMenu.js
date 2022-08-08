@@ -1,31 +1,100 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button, Container, ListGroup, ListGroupItem, Dropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem,} from "reactstrap";
+    DropdownItem,
+    UncontrolledDropdown,} from "reactstrap";
 
 const OwnerMenu=()=>{
     return(
         <div>
-            {/* <Dropdown block>
-        <DropdownToggle caret>Dropdown</DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem header>Select Operation</DropdownItem>
-          <DropdownItem>Add Department</DropdownItem>
-          <DropdownItem>View Department</DropdownItem>
-          <DropdownItem>View All Departments</DropdownItem>
-          
-        </DropdownMenu>
-      </Dropdown> */}
-
-
-
 
         <ListGroup>
-            <ListGroupItem tag="a" href="#!">Home</ListGroupItem>
-            <ListGroupItem tag="a" href="#!">Manage Department</ListGroupItem>
-            <ListGroupItem tag="a" href="#!">Manage User</ListGroupItem>
-            <ListGroupItem tag="a" href="#!">Retrieve Report</ListGroupItem>
+            <Link className="list-group-item list-group-item-action" tag="a" to="/">
+            <div class="dropdown-content">
+                <UncontrolledDropdown>
+                <DropdownToggle block outline className="text-center">
+                     Home
+                </DropdownToggle>
+                </UncontrolledDropdown>
+                </div>
+            
+            </Link>
+
+
+
+            
+            <ListGroupItem className="list-group-item list-group-item-action" tag="a" to="/">
+            
+                <div class="dropdown-content">
+                <UncontrolledDropdown>
+                <DropdownToggle block outline className="text-center">
+                     Manage Department
+                </DropdownToggle>
+                <DropdownMenu >
+                    <DropdownItem>
+                <Link className="list-group-item list-group-item-action" tag="a" to="/adddepartment">Add Department</Link>
+                
+                </DropdownItem>
+                    <DropdownItem>
+                    <Link className="list-group-item list-group-item-action" tag="a" to="/adddepartment">update Department</Link>
+                
+                </DropdownItem>
+                    <DropdownItem>
+                    <Link className="list-group-item list-group-item-action" tag="a" to="/viewall">view Department</Link>
+                
+                </DropdownItem>
+                
+                
+                
+                </DropdownMenu>
+                </UncontrolledDropdown>
+            </div>
+            
+            </ListGroupItem>
+            <Link className="list-group-item list-group-item-action" tag="a" to="/adddepartment">
+            
+                <div class="dropdown-content">
+                <UncontrolledDropdown>
+                <DropdownToggle block outline className="text-center">
+                     Manage User
+                </DropdownToggle>
+                <DropdownMenu >
+                    <DropdownItem>
+                <Link className="list-group-item list-group-item-action" tag="a" to="/adddepartment">Add User</Link>
+                
+                </DropdownItem>
+                    <DropdownItem>
+                    <Link className="list-group-item list-group-item-action" tag="a" to="/adddepartment">update User</Link>
+                
+                </DropdownItem>
+                    <DropdownItem>
+                    <Link className="list-group-item list-group-item-action" tag="a" to="/viewall">Delete User</Link>
+                
+                </DropdownItem>
+                
+                
+                
+                </DropdownMenu>
+                </UncontrolledDropdown>
+            </div>
+            
+            </Link>
+            
+            
+
+            <Link className="list-group-item list-group-item-action" tag="a" to="/">
+            <div class="dropdown-content">
+                <UncontrolledDropdown>
+                <DropdownToggle block outline className="text-center">
+                     Retrieve Report
+                </DropdownToggle>
+                </UncontrolledDropdown>
+                </div>
+            
+            </Link>
+            
         </ListGroup>
 
         <Container className="text-center my-5" >

@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState, handleClick, useStyles } from "react";
 
 import { Button, Container, Form, FormGroup, Input} from "reactstrap";
+import Department from "./Department";
+
+
 
 const AddDepartment=()=>{
     return (
@@ -24,6 +27,14 @@ const AddDepartment=()=>{
                     placeholder="Enter Name here" 
                     name="departmentName" 
                     id="departmentName" />
+                </FormGroup>
+                <FormGroup>
+                    <label for="departmentSize">Department Size </label>
+                    <Input 
+                    type="number" 
+                    placeholder="Enter Size here" 
+                    name="departmentSize" 
+                    id="departmentSize" />
                 </FormGroup>
                 <FormGroup>
                     <label for="hodName">HOD Name</label>

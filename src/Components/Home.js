@@ -8,10 +8,10 @@ const Home = () => {
             <Card className="text-center">
 
                 <CardBody bg-primary>
-                    <CardTitle tag="h5" className="display-3">
+                    <CardTitle tag="h5" className="display-5">
                         Home Page of Hotel
                     </CardTitle>
-                    <CardText className="display-6">
+                    <CardText className="display-7">
                         This is the best Hotel in the world and rooms are available at very cheap prices.
 
                     </CardText>

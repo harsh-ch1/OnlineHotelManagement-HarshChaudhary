@@ -4,22 +4,21 @@ import './App.css';
 import Header from './Components/Header';
 
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from "react-toastify";
+//import { ToastContainer, toast } from "react-toastify";
 import Home from './Components/Home';
 import Department from './Components/Department';
 import AllDepartments from './Components/AllDepartments';
 import AddDepartment from './Components/AddDepartment';
 import { Col, Container, Row } from 'reactstrap';
 import OwnerMenu from './Components/OwnerMenu';
+import{ BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
 
-  // const btnHandle=()=>{
-  //   toast("SUCCESS")
-  // }
 
   return (
     <div>
+      <Router>
       <Container>
         <Header />
         <Row>
@@ -27,10 +26,16 @@ function App() {
             <OwnerMenu />
           </Col>
           <Col md={8}>
-            <Home/>
+            <Routes>
+
+            <Route path="/" element={<Home />} exact />
+            <Route path='/adddepartment' element={< AddDepartment/>} exact/>
+            <Route path='/viewall' element={<AllDepartments />} exact/>
+            </Routes>
           </Col>
         </Row>
       </Container>
+      </Router>
     </div>
     
   );
