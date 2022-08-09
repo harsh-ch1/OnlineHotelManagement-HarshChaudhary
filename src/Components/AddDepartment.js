@@ -1,6 +1,6 @@
 import React, { useState, handleClick, useStyles } from "react";
 
-import { Button, Container, Form, FormGroup, Input} from "reactstrap";
+import { Button, Container, Form, FormGroup, Input, Alert, UncontrolledAlert} from "reactstrap";
 import Department from "./Department";
 
 
@@ -53,8 +53,17 @@ const AddDepartment=()=>{
                     name="hodPhoneNo" 
                     id="hodPhoneNo" />
                 </FormGroup>
+
+                {/* <UncontrolledAlert>
+                    Department Added Successfully!
+                </UncontrolledAlert> */}
+
                 <Container className="text-center">
-                    <Button color="success">Submit</Button>
+                    <Button color="success">
+                        Submit
+                        
+                    </Button>
+                    
                     <Button color="dark " style={{margin:8}}>clear</Button>
                 </Container>
             </Form>

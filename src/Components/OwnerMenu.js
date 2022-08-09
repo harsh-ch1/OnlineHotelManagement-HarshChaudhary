@@ -23,7 +23,7 @@ const OwnerMenu = () => {
                <Accordion.Item eventKey="0">
  
                    <Link className="list-group-item list-group-item-action " tag="a" to="/owner">
-                       <Button outline className="my-3 mx-4"  style={{width:178, border : 0}} >
+                       <Button outline="true" className="my-3 mx-4"  style={{width:178, border : 0}} >
  
                            Home
                        </Button>
@@ -36,19 +36,19 @@ const OwnerMenu = () => {
                    <Link className=" list-group-item list-group-item-action" tag="a" to="/owner">
  
  
-                       <Accordion.Header block outline className="mx-1 text-center dropdown-content"><Button outline style={{width:178, border : 0}}> Manage Department</Button></Accordion.Header>
+                       <Accordion.Header block="true" outline="true" className="mx-1 text-center dropdown-content"><Button outline style={{width:178, border : 0}}> Manage Department</Button></Accordion.Header>
  
                        <Accordion.Body style={{ margin: "0", padding: "8" }}>
  
  
  
-                           <Link  outline className="list-group-item dropdown-content " tag="a" to="/owner/adddepartment" style={{ border: "0" }}><Button  outline style={{border:0}}> Add Department</Button></Link>
+                           <Link  outline="true" className="list-group-item dropdown-content " tag="a" to="/owner/adddepartment" style={{ border: "0" }}><Button  outline style={{border:0}}> Add Department</Button></Link>
                            <hr />
  
-                           <Link block outline className="list-group-item  dropdown-content" tag="a" to="/owner/viewdepartmentbyid" style={{ border: "0" }}><Button  outline style={{border:0}}> View Department By Id</Button></Link>
+                           <Link block="true" outline="true" className="list-group-item  dropdown-content" tag="a" to="/owner/viewdepartmentbyid" style={{ border: "0" }}><Button  outline style={{border:0}}> View Department By Id</Button></Link>
                            <hr />
  
-                           <Link block outline className="list-group-item dropdown-content " tag="a" to="/owner/viewall" style={{ border: "0" }}><Button  outline style={{border:0}}> View All Department</Button></Link>
+                           <Link block="true" outline="true" className="list-group-item dropdown-content " tag="a" to="/owner/viewall" style={{ border: "0" }}><Button  outline style={{border:0}}> View All Department</Button></Link>
                        </Accordion.Body>
  
                    </Link>
@@ -58,19 +58,19 @@ const OwnerMenu = () => {
                    <Link className="list-group-item list-group-item-action" tag="a" to="/owner">
  
  
-                       <Accordion.Header block outline className=" mx-1 text-center dropdown-content"> <Button  outline style={{width:178, border : 0}}>Manage User</Button></Accordion.Header>
+                       <Accordion.Header block="true" outline="true" className=" mx-1 text-center dropdown-content"> <Button  outline style={{width:178, border : 0}}>Manage User</Button></Accordion.Header>
  
                        <Accordion.Body style={{ margin: "0", padding: "8" }}>
  
  
  
-                           <Link block outline className="list-group-item dropdown-content " tag="a" to="/owner/adduser" style={{ border: "0" }}><Button  outline style={{border:0}}> Add User</Button></Link>
+                           <Link block="true" outline="true" className="list-group-item dropdown-content " tag="a" to="/owner/adduser" style={{ border: "0" }}><Button  outline style={{border:0}}> Add User</Button></Link>
                            <hr />
  
-                           <Link block outline className="list-group-item  dropdown-content" tag="a" to="/owner/updateuser" style={{ border: "0" }}><Button  outline style={{border:0}}> Update User</Button></Link>
+                           <Link block="true" outline="true" className="list-group-item  dropdown-content" tag="a" to="/owner/updateuser" style={{ border: "0" }}><Button  outline style={{border:0}}> Update User</Button></Link>
                            <hr />
  
-                           <Link block outline className="list-group-item dropdown-content " tag="a" to="/owner/deleteuser" style={{ border: "0" }}><Button  outline style={{border:0}}> Delete User</Button></Link>
+                           <Link block="true" outline="true" className="list-group-item dropdown-content " tag="a" to="/owner/deleteuser" style={{ border: "0" }}><Button  outline style={{border:0}}> Delete User</Button></Link>
                        </Accordion.Body>
  
                    </Link>
@@ -79,7 +79,7 @@ const OwnerMenu = () => {
                <Accordion.Item eventKey="3">
  
 <Link className="list-group-item list-group-item-action " tag="a" to="/owner/retrievereport">
-   <Button outline className="my-3 mx-4 accordion-header" style={{width:178 , border : 0}}   >
+   <Button outline="true" className="my-3 mx-4 accordion-header" style={{width:178 , border : 0}}   >
  
        Retrieve Report
    </Button>

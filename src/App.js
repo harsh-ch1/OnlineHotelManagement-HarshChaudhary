@@ -32,12 +32,21 @@ import ViewDepartmentResult from './Components/ViewDepartmentResult';
 import ViewInventoryResult from './Components/ViewInventoryResult';
 import ViewStaffResult from './Components/ViewStaffResult';
 import SearchRoomNoResult from './Components/SearchRoomNoResult';
+import ReceptionistMenu from './Components/Receptionist/ReceptionistMenu';
+import AddGuest from './Components/Receptionist/AddGuest';
+import ViewGuestById from './Components/Receptionist/ViewGuestById';
+import ViewGuestResult from './Components/Receptionist/ViewGuestResult';
+import SearchRoom from './Components/Receptionist/SearchRoom';
+import SearchRoomResult from './Components/Receptionist/SearchRoomResult';
+import Reservation from './Components/Receptionist/Reservation';
+import IssueBill from './Components/Receptionist/IssueBill';
+import IssueBillResult from './Components/Receptionist/IssueBillResult';
 
 function App() {
 
 
   return (
-    <div>
+    <div >
       <Router>
       <Container >
         <Header />
@@ -46,6 +55,7 @@ function App() {
             <Routes>
               <Route path="/owner/*" element = {<OwnerMenu />} exact/>
               <Route path="/manager/*" element = {<ManagerMenu />} exact/>
+              <Route path="/receptionist/*" element = {<ReceptionistMenu />} exact/>
             </Routes>
             
           </Col>
@@ -77,6 +87,17 @@ function App() {
             <Route path='/manager/viewroombyroomno' element={< ViewRoomByRoomNo/>} exact/>
             <Route path='/manager/viewroombyroomno/result' element={< SearchRoomNoResult/>} exact/>
             <Route path='/manager/setrates' element={< SetRates/>} exact/>
+
+            <Route path="/receptionist" element={<Home />} exact />
+            <Route path='/receptionist/addguest' element={< AddGuest/>} exact/>
+            <Route path='/receptionist/viewguestbyid' element={< ViewGuestById/>} exact/>
+            <Route path='/receptionist/viewguestbyid/result' element={< ViewGuestResult/>} exact/>
+            <Route path='/receptionist/searchroom' element={< SearchRoom/>} exact/>
+            <Route path='/receptionist/searchroom/result' element={< SearchRoomResult/>} exact/>
+            <Route path='/receptionist/searchroom/result/reservation' element={< Reservation/>} exact/>
+            <Route path='/receptionist/issuebill' element={< IssueBill/>} exact/>
+            <Route path='/receptionist/issuebill/result' element={< IssueBillResult/>} exact/>
+
             </Routes>
           </Col>
         </Row>
