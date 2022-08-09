@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button, Container, Form, FormGroup, Input,Card,
     CardBody,
     CardTitle,
@@ -27,27 +28,14 @@ const ViewDepartmentById=()=>{
                 </Form>
 
                 <Container className="text-center">
-                    <Button  color="success">Search</Button>
-                </Container><br></br><br></br>
+                    <Button  color="success">
+                    <Link className="list-group-item list-group-item-action" tag="a" to="/owner/viewdepartmentbyid/result">Search</Link>
+                    </Button>
+                </Container>
                 
 
                     
-                <div>
-                <Card className="text-center">
-            <CardBody>
-                <CardSubtitle className="fw-bold">Kitchen</CardSubtitle>
-                <br></br>
-                <CardText>Department Size : 25</CardText>
-                <CardText>Department HOD : Rajesh Kumar</CardText>
-                <CardText>HOD Phone No. : 9990661578</CardText>
                 
-                <Container className="text-center">
-                    <Button  style={{color: "white" , backgroundColor: "#003333"}}>Update</Button>
-                    <Button className="mx-2" style={{color: "white" , backgroundColor: "#999900"}}>Delete</Button>
-                </Container>
-            </CardBody>
-        </Card>
-                </div>
                 
             
 

@@ -28,12 +28,16 @@ import ViewAllStaff from './Components/ViewAllStaff';
 import SetRates from './Components/SetRates';
 import UpdateUser from './Components/UpdateUser';
 import DeleteUser from './Components/DeleteUser';
+import ViewDepartmentResult from './Components/ViewDepartmentResult';
+import ViewInventoryResult from './Components/ViewInventoryResult';
+import ViewStaffResult from './Components/ViewStaffResult';
+import SearchRoomNoResult from './Components/SearchRoomNoResult';
 
 function App() {
 
 
   return (
-    <div >
+    <div>
       <Router>
       <Container >
         <Header />
@@ -52,6 +56,7 @@ function App() {
             <Route path='/owner/adddepartment' element={< AddDepartment/>} exact/>
             <Route path='/owner/viewall' element={<AllDepartments />} exact/>
             <Route path='/owner/viewdepartmentbyid' element={<ViewDepartmentById />} exact/>
+            <Route path='/owner/viewdepartmentbyid/result' element={<ViewDepartmentResult />} exact/>
             <Route path='/owner/retrievereport' element={<RetrieveReport />} exact/>
             <Route path='/owner/notifications' element={<Notifications />} exact/>
             <Route path='/owner/adduser' element={< AddUser/>} exact/>
@@ -63,11 +68,14 @@ function App() {
             <Route path='/manager/addinventory' element={< AddInventory/>} exact/>
             <Route path='/manager/viewinventory' element={< ViewAllInventory/>} exact/>
             <Route path='/manager/viewinventorybyname' element={< ViewInventoryByName/>} exact/>
+            <Route path='/manager/viewinventorybyname/result' element={< ViewInventoryResult/>} exact/>
             <Route path='/manager/addstaff' element={< AddStaff/>} exact/>
             <Route path='/manager/viewstaff' element={< ViewAllStaff/>} exact/>
             <Route path='/manager/viewstaffbycode' element={< ViewStaffByCode/>} exact/>
+            <Route path='/manager/viewstaffbycode/result' element={< ViewStaffResult/>} exact/>
             <Route path='/manager/addRoom' element={< AddRoom/>} exact/>
             <Route path='/manager/viewroombyroomno' element={< ViewRoomByRoomNo/>} exact/>
+            <Route path='/manager/viewroombyroomno/result' element={< SearchRoomNoResult/>} exact/>
             <Route path='/manager/setrates' element={< SetRates/>} exact/>
             </Routes>
           </Col>

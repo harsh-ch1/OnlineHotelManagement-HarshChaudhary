@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button, Container, Form, FormGroup, Input} from "reactstrap";
 
 const ViewStaffByCode=()=>{
@@ -19,7 +20,9 @@ const ViewStaffByCode=()=>{
                 </FormGroup>
                 </Form>
                 <Container className="text-center">
-                    <Button color="success">Search</Button>
+                    <Button  color="success">
+                    <Link className="list-group-item list-group-item-action" tag="a" to="/manager/viewstaffbycode/result">Search</Link>
+                    </Button>
                 </Container>
         </div>
     )
