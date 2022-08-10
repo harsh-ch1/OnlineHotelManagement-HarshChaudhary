@@ -24,40 +24,57 @@ const Login = () => {
  
 // function to post data on backend
 const sendDataToServer = (data) => {
-    axios.get(`${base_url}ManageLogin/login`, data, {
+    axios.post(`${base_url}ManageLogin/authenticate`, data, {
         headers: {
             "Access-Control-Allow-Headers": "Content-Type",
-            "Access-Control-Allow-Methods": "*",
-            "Username": "harsh@capg.co.in",
-            "Password": "123456"
-            //'Authorization': 'Basic ' + btoa(`harsh@capg.co.in : 123456`)
+            "Access-Control-Allow-Methods": "*"
         }
     }).then(
         (response) => {
-            console.log(response);
-            console.log("success");
-            var role = response.data.role;
+            if (response.data.jwt != null) {
+                alert("jwt created successfully");
+axios.get(`${base_url}ManageLogin/login`, {
+         headers: {
+             "Access-Control-Allow-Headers": "Content-Type",
+             "Access-Control-Allow-Methods": "*",
+           "Authorization" : `Bearer ${response.data.jwt}`}
+         }
+     ).then(
+         (response) => {
+             console.log(response);
+             console.log("success");
+             var role = response.data;
+             console.log(role);
             if (role === "ROLE_OWNER") {
-                window.open("http://localhost:3000/owner", "_top");
+                 window.open("http://localhost:3000/owner", "_top");
                
-            }
-            else if(role ==="ROLE_MANAGER"){
-                window.open("http://localhost:3000/manager", "_top");
-            }
-            else if(role ==="ROLE_RECEPTIONIST"){
-                window.open("http://localhost:3000/receptionist", "_top");
-            }
-            else{
-                window.open("http://localhost:3000", "_top");
-            }
-            
+             }
+             else if(role ==="ROLE_MANAGER"){
+                 window.open("http://localhost:3000/manager", "_top");
+             }
+             else if(role ==="ROLE_RECEPTIONIST"){
+                 window.open("http://localhost:3000/receptionist", "_top");
+             }
+             else{
+                 window.open("http://localhost:3000", "_top");
+             }
+           
  
+         }, (error) => {
+             console.log(error);
+             console.log("error");
+         }
+     )
+ 
+             } else {
+                 alert("Please fill in the correct data");
+             }
         }, (error) => {
             console.log(error);
             console.log("error");
         }
-    )
-};
+    )   
+ };
  
     return(
         <div>
@@ -83,7 +100,7 @@ const sendDataToServer = (data) => {
                     type="password"
                     placeholder="Enter here"
                     name="password"
-                    id="password" 
+                    id="password"
                     onChange={(e) => {
                         setLoginData({ ...loginData, password: e.target.value });
                     }}
@@ -95,8 +112,8 @@ const sendDataToServer = (data) => {
        
            <Button type="submit" className="col-4" style={{color: "white" , backgroundColor: "#6c6c6c"}}>Login</Button>
            
-           <Link className="button" tag="a" to="/">
-           <Button  style={{color: "white" , backgroundColor: "#000000"}} className="mx-3 col-4">Reset</Button></Link>
+           
+           <Button  type="reset" style={{color: "white" , backgroundColor: "#000000"}} className="mx-3 col-4">Reset</Button>
        </Container>
             </Form>
  
@@ -106,3 +123,4 @@ const sendDataToServer = (data) => {
 }
  
 export default Login;
+
