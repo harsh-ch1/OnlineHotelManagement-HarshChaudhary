@@ -1,13 +1,14 @@
-2022-08-06 00:02:48,894 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Starting ManageUserServiceApplication using Java 17.0.2 on Harsh with PID 30044 (C:\Users\darsh\Downloads\Online Hotel Management System\manage-user-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\manage-user-service)
-2022-08-06 00:02:48,899 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-08-06 00:02:54,315 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Started ManageUserServiceApplication in 5.924 seconds (JVM running for 6.915)
-2022-08-06 00:06:16,285 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Starting ManageUserServiceApplication using Java 17.0.2 on Harsh with PID 18256 (C:\Users\darsh\Downloads\Online Hotel Management System\manage-user-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\manage-user-service)
-2022-08-06 00:06:16,288 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-08-06 00:06:21,820 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Started ManageUserServiceApplication in 6.013 seconds (JVM running for 6.97)
-2022-08-06 00:11:19,925 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-9] delete user has been accessed
-2022-08-06 00:34:21,330 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-4] User HelloTest has been accessed
-2022-08-06 00:34:49,166 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-3] delete user has been accessed
-2022-08-06 00:36:09,592 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-7] delete user has been accessed
-2022-08-06 00:36:32,661 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-8] delete user has been accessed
-2022-08-06 00:43:39,670 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-1] Add user has been accessed
-2022-08-06 00:44:06,763 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-2] Add user has been accessed
+2022-08-11 04:17:17,409 ERROR com.netflix.discovery.DiscoveryClient [DiscoveryClient-HeartbeatExecutor-0] DiscoveryClient_MANAGE-USER-SERVICE/host.docker.internal:manage-user-service:8089 - was unable to send heartbeat!
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:893)
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1457)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)

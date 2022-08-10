@@ -1,10 +1,12 @@
 server:
   port: 8089
 spring:
+  
   application:
     name: manage-user-service
   banner :
     location : banner.txt
+  
       
   datasource:
      driverClassName: com.mysql.cj.jdbc.Driver

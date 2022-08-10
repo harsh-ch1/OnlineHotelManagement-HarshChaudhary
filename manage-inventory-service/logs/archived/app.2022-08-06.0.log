@@ -1,0 +1,14 @@
+2022-08-05 14:52:22,337 INFO com.capgemini.manageinventoryservice.controller.InventoryController [http-nio-8082-exec-1] Add Inventory has been accessed
+2022-08-05 14:52:50,077 INFO com.capgemini.manageinventoryservice.controller.InventoryController [http-nio-8082-exec-2] Add Inventory has been accessed
+2022-08-05 14:53:04,604 INFO com.capgemini.manageinventoryservice.controller.InventoryController [http-nio-8082-exec-3] Add Inventory has been accessed
+2022-08-05 14:53:32,546 INFO com.capgemini.manageinventoryservice.controller.InventoryController [http-nio-8082-exec-4] Add Inventory has been accessed
+2022-08-05 14:54:18,719 INFO com.capgemini.manageinventoryservice.controller.InventoryController [http-nio-8082-exec-5] Add Inventory has been accessed
+2022-08-05 14:54:32,703 INFO com.capgemini.manageinventoryservice.controller.InventoryController [http-nio-8082-exec-6] Add Inventory has been accessed
+2022-08-05 14:55:27,852 INFO com.capgemini.manageinventoryservice.controller.InventoryController [http-nio-8082-exec-8] Update Inventory has been accessed
+2022-08-05 14:56:10,714 INFO com.capgemini.manageinventoryservice.controller.InventoryController [http-nio-8082-exec-10] Delete Inventory has been accessed
+2022-08-05 14:56:19,152 INFO com.capgemini.manageinventoryservice.controller.InventoryController [http-nio-8082-exec-1] Add Inventory has been accessed
+2022-08-05 14:56:34,856 INFO com.capgemini.manageinventoryservice.controller.InventoryController [http-nio-8082-exec-3] View All Inventory has been accessed
+2022-08-05 14:56:55,735 INFO com.capgemini.manageinventoryservice.controller.InventoryController [http-nio-8082-exec-4] View Inventory has been accessed
+2022-08-05 20:57:31,882 INFO com.capgemini.manageinventoryservice.ManageInventoryServiceApplication [main] Starting ManageInventoryServiceApplication using Java 17.0.2 on Harsh with PID 31480 (C:\Users\darsh\Downloads\Online Hotel Management System\manage-inventory-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\manage-inventory-service)
+2022-08-05 20:57:31,885 INFO com.capgemini.manageinventoryservice.ManageInventoryServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-05 20:57:37,556 INFO com.capgemini.manageinventoryservice.ManageInventoryServiceApplication [main] Started ManageInventoryServiceApplication in 6.179 seconds (JVM running for 7.427)

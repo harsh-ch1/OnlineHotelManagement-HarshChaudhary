@@ -14,58 +14,81 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.capgemini.manageuserservice.filter.JwtRequestFilter;
 import com.capgemini.manageuserservice.service.impl.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
-public class MyConfig extends WebSecurityConfigurerAdapter {
-
+public class MyConfig extends WebSecurityConfigurerAdapter{
+	
+	
 	@Bean
 	public UserDetailsService getUserDetailsService() {
 		return new UserDetailsServiceImpl();
-
+		
 	}
-
+	
+	@Autowired
+	private JwtRequestFilter jwtRequestFilter;
+	
 	@Override
 	@Bean
-	public AuthenticationManager authenticationManagerBean() throws Exception {
+	public AuthenticationManager authenticationManagerBean() throws Exception{
 		return super.authenticationManagerBean();
 	}
-
+	
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
+	
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
 		daoAuthenticationProvider.setUserDetailsService(this.getUserDetailsService());
-		// checking the password the userdetails getting from above line and then
-		// returning result
 		daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
 		return daoAuthenticationProvider;
 	}
 
-	// Configure method to authenticate the auth request
+	
+	//Configure method
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// for authentication from database we use (authenticationProvider)
 		auth.authenticationProvider(authenticationProvider());
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-
-		// IMP for Previous Implementation
-		http.authorizeRequests().antMatchers("/owner/**").hasRole("OWNER").antMatchers("/user/**").hasRole("user")
-				.antMatchers("/ManageLogin/**").hasAnyRole("OWNER", "MANAGER", "RECEPTIONIST").and().formLogin()
-				.and().httpBasic().and().csrf().disable();
-				http.cors().disable();
-				
 		
-		//http.authorizeRequests().antMatchers("/**").permitAll().and().csrf().disable();
-
+		//IMP for Previous Implementation
+		//http.authorizeRequests().antMatchers("/owner/**").hasRole("OWNER")
+		//.antMatchers("/user/**").hasRole("user")
+		//.antMatchers("/**").permitAll().and().formLogin().and().csrf().disable();
+		
+		http.csrf().disable().authorizeRequests()
+		.antMatchers("/owner/**").hasRole("OWNER")
+		//.antMatchers("/ManageLogin/authenticate").permitAll()
+		.antMatchers("/ManageLogin/*").permitAll()
+		.anyRequest().authenticated()
+		.and().sessionManagement()
+		.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+	http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+		
+//		http.authorizeRequests().antMatchers("/owner/**").hasRole("OWNER").antMatchers("/user/**").hasRole("user")
+//		.antMatchers("/ManageLogin/**").hasAnyRole("OWNER", "MANAGER", "RECEPTIONIST").anyRequest().authenticated()
+//		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().httpBasic().and().csrf().disable();
+//	http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+//	http.cors().disable();
+//	
+	
+	
+	
 	}
+	
+	
+	//8080:owner/ManageDepartment/
+	
+	
+	
 
 }

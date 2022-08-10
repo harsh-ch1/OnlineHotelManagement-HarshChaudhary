@@ -1,3 +1,0 @@
-2022-08-04 23:10:43,208 INFO com.capgemini.managedepartmentservice.ManageDepartmentServiceApplication [main] Started ManageDepartmentServiceApplication in 25.654 seconds (JVM running for 48.561)
-2022-08-04 23:41:10,163 INFO com.capgemini.managedepartmentservice.controller.DepartmentController [http-nio-8081-exec-2] Department Hellotest has been accessed
-2022-08-04 23:43:30,566 INFO com.capgemini.managedepartmentservice.controller.DepartmentController [http-nio-8081-exec-4] Department Hellotest has been accessed

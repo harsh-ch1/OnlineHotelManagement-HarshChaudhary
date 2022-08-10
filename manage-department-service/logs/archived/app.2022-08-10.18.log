@@ -1,5 +1,5 @@
-2022-08-05 14:10:30,977 INFO com.capgemini.managedepartmentservice.ManageDepartmentServiceApplication [main] Started ManageDepartmentServiceApplication in 5.635 seconds (JVM running for 6.563)
-2022-08-05 14:11:00,484 ERROR com.netflix.discovery.DiscoveryClient [DiscoveryClient-HeartbeatExecutor-0] DiscoveryClient_MANAGE-DEPARTMENT-SERVICE/host.docker.internal:manage-department-service:8081 - was unable to send heartbeat!
+2022-08-10 14:53:23,871 INFO com.capgemini.managedepartmentservice.controller.DepartmentController [http-nio-8081-exec-1] Add Department has been accessed
+2022-08-10 14:53:38,438 ERROR com.netflix.discovery.DiscoveryClient [DiscoveryClient-HeartbeatExecutor-0] DiscoveryClient_MANAGE-DEPARTMENT-SERVICE/host.docker.internal:manage-department-service:8081 - was unable to send heartbeat!
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
@@ -13,19 +13,21 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2022-08-05 14:32:39,742 INFO com.capgemini.managedepartmentservice.controller.DepartmentController [http-nio-8081-exec-1] Delete has been accessed
-2022-08-05 14:32:48,216 INFO com.capgemini.managedepartmentservice.controller.DepartmentController [http-nio-8081-exec-2] Delete has been accessed
-2022-08-05 14:37:42,013 INFO com.capgemini.managedepartmentservice.controller.DepartmentController [http-nio-8081-exec-4] Add Department has been accessed
-2022-08-05 14:38:46,530 INFO com.capgemini.managedepartmentservice.controller.DepartmentController [http-nio-8081-exec-6] Add Department has been accessed
-2022-08-05 14:39:37,415 INFO com.capgemini.managedepartmentservice.controller.DepartmentController [http-nio-8081-exec-7] Add Department has been accessed
-2022-08-05 14:40:41,819 INFO com.capgemini.managedepartmentservice.controller.DepartmentController [http-nio-8081-exec-9] Add Department has been accessed
-2022-08-05 14:42:48,417 INFO com.capgemini.managedepartmentservice.controller.DepartmentController [http-nio-8081-exec-1] Add Department has been accessed
-2022-08-05 14:44:31,678 INFO com.capgemini.managedepartmentservice.controller.DepartmentController [http-nio-8081-exec-3] Update Department has been accessed
-2022-08-05 14:46:29,051 INFO com.capgemini.managedepartmentservice.controller.DepartmentController [http-nio-8081-exec-8] All Department has been accessed
-2022-08-05 14:47:05,248 INFO com.capgemini.managedepartmentservice.controller.DepartmentController [http-nio-8081-exec-1] View Department has been accessed
-2022-08-05 14:57:25,657 INFO com.capgemini.managedepartmentservice.controller.DepartmentController [http-nio-8081-exec-3] Notification has been accessed
-2022-08-05 15:34:14,574 INFO com.capgemini.managedepartmentservice.controller.DepartmentController [http-nio-8081-exec-6] Notification has been accessed
-2022-08-05 17:49:47,116 ERROR com.netflix.discovery.DiscoveryClient [RMI TCP Connection(227)-127.0.0.1] DiscoveryClient_MANAGE-DEPARTMENT-SERVICE/host.docker.internal:manage-department-service:8081 - de-registration failedCannot execute request on any known server
+2022-08-10 14:54:08,495 ERROR com.netflix.discovery.DiscoveryClient [DiscoveryClient-HeartbeatExecutor-0] DiscoveryClient_MANAGE-DEPARTMENT-SERVICE/host.docker.internal:manage-department-service:8081 - was unable to send heartbeat!
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:893)
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1457)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-08-10 14:54:36,570 ERROR com.netflix.discovery.DiscoveryClient [RMI TCP Connection(10)-127.0.0.1] DiscoveryClient_MANAGE-DEPARTMENT-SERVICE/host.docker.internal:manage-department-service:8081 - de-registration failedCannot execute request on any known server
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
@@ -61,7 +63,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:72)
-	at jdk.internal.reflect.GeneratedMethodAccessor104.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor106.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at java.base/sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:262)
@@ -78,7 +80,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310)
 	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405)
 	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829)
-	at java.base/jdk.internal.reflect.GeneratedMethodAccessor106.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor108.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
@@ -94,5 +96,5 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2022-08-05 20:57:22,881 INFO com.capgemini.managedepartmentservice.ManageDepartmentServiceApplication [main] Starting ManageDepartmentServiceApplication using Java 17.0.2 on Harsh with PID 10936 (C:\Users\darsh\Downloads\Online Hotel Management System\manage-department-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\manage-department-service)
-2022-08-05 20:57:22,884 INFO com.capgemini.managedepartmentservice.ManageDepartmentServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-10 16:59:53,278 INFO com.capgemini.managedepartmentservice.ManageDepartmentServiceApplication [main] Starting ManageDepartmentServiceApplication using Java 17.0.2 on Harsh with PID 13352 (C:\Users\darsh\Downloads\Online Hotel Management System\manage-department-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\manage-department-service)
+2022-08-10 16:59:53,281 INFO com.capgemini.managedepartmentservice.ManageDepartmentServiceApplication [main] No active profile set, falling back to 1 default profile: "default"

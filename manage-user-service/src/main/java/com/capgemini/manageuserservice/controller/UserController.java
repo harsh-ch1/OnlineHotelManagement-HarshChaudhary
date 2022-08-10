@@ -21,6 +21,7 @@ import com.capgemini.manageuserservice.service.UserService;
 
 @RestController
 @RequestMapping("/owner/ManageUser")
+@CrossOrigin
 public class UserController {
 	
 	Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -28,32 +29,32 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@SuppressWarnings("unused")
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
 	@GetMapping(value = "/HelloTest", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> helloTest() {
-		logger.info("User HelloTest has been accessed");
 			return ResponseEntity.ok("Hello World-9");
 	}
 	
 	@PostMapping(value = "/adduser", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<UserModel> addUser(@RequestBody UserModel user) {
-		logger.info("Add user has been accessed");
 		return ResponseEntity.ok(userService.addUserService(user));
 	}
 	
 	@PutMapping(value="/updateuser", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<UserModel> updateUser(@RequestBody UserModel user){
-		logger.info("update user has been accessed");
 		return ResponseEntity.ok(userService.updateUserService(user));
 	}
 	
 	@DeleteMapping(value = "/deleteuser/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> deleteUser(@PathVariable String username) {
-		logger.info("delete user has been accessed");
 		return ResponseEntity.ok(userService.deleteUserService(username));
 	}
 	
+	@GetMapping(value = "/checkuser/{username}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<UserModel> checkUser(@PathVariable String username ) {
+		return ResponseEntity.ok(userService.checkUser(username));
+		
+	}
 }

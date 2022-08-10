@@ -3,10 +3,20 @@ server:
 
   
 spring:
+  banner:
+    location: banner.txt
   application:
     name: spring-cloud-gateway-server
   cloud:
     gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin Username Password
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+              allowedOrigins: "*"
+              allowedMethods: "*"
+              allowedHeaders: "*"
       routes:
       - id: ManageDepartment
         uri: http://localhost:8081/
@@ -28,18 +38,15 @@ spring:
         predicates:
         - Path=/RetrieveReport/**  
       
-      
       - id: MakeReservation
         uri: http://localhost:8086/
         predicates:
         - Path=/MakeReservation/** , /IssueBill/**
         
-        
       - id: ManageRoom
         uri: http://localhost:8087/
         predicates:
         - Path=/ManageRoom/** , /SearchRoom/**
-        
         
       - id: ManageGuest
         uri: http://localhost:8088/
@@ -50,4 +57,3 @@ spring:
         uri: http://localhost:8089/
         predicates:
         - Path=/owner/ManageUser/** , /ManageLogin/**
-        
