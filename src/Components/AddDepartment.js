@@ -1,4 +1,5 @@
 import React, { useState, handleClick, useStyles } from "react";
+import { Link } from "react-router-dom";
 
 import { Button, Container, Form, FormGroup, Input, Alert, UncontrolledAlert} from "reactstrap";
 import Department from "./Department";
@@ -63,8 +64,8 @@ const AddDepartment=()=>{
                         Submit
                         
                     </Button>
-                    
-                    <Button color="dark " style={{margin:8}}>clear</Button>
+                    <Link className="button" tag="a" to="/owner/adddepartment">
+                    <Button color="dark " style={{margin:8}}>clear</Button></Link>
                 </Container>
             </Form>
 

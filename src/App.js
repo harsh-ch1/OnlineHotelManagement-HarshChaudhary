@@ -41,6 +41,8 @@ import SearchRoomResult from './Components/Receptionist/SearchRoomResult';
 import Reservation from './Components/Receptionist/Reservation';
 import IssueBill from './Components/Receptionist/IssueBill';
 import IssueBillResult from './Components/Receptionist/IssueBillResult';
+import LoginData from './Components/Login';
+import LoginSlideshow from './Components/LoginSlideshow';
 
 function App() {
 
@@ -53,6 +55,7 @@ function App() {
         <Row>
           <Col md={4}>
             <Routes>
+              <Route path='/' element={<LoginData />} exact/>
               <Route path="/owner/*" element = {<OwnerMenu />} exact/>
               <Route path="/manager/*" element = {<ManagerMenu />} exact/>
               <Route path="/receptionist/*" element = {<ReceptionistMenu />} exact/>
@@ -61,6 +64,8 @@ function App() {
           </Col>
           <Col md={8}>
             <Routes>
+
+            <Route path='/' element={<LoginSlideshow />} exact/>
 
             <Route path="/owner" element={<Home />} exact />
             <Route path='/owner/adddepartment' element={< AddDepartment/>} exact/>
