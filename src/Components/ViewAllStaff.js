@@ -1,9 +1,9 @@
 import React from "react";
 
-const ViewAllStaff=()=>{
-    return(
+const ViewAllStaff = () => {
+    return (
         <>
-        <h3>All Staff Details Will be here!</h3>
+            <h3>All Staff Details Will be here!</h3>
         </>
     )
 }

@@ -1,9 +1,9 @@
 import React from "react";
 
-const ViewAllInventory=()=>{
-    return(
+const ViewAllInventory = () => {
+    return (
         <>
-        <h3>All Inventory Details Will be here!</h3>
+            <h3>All Inventory Details Will be here!</h3>
         </>
     )
 }

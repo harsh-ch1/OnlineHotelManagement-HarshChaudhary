@@ -16,9 +16,9 @@ import AddRoom from './Components/AddRoom';
 import { Col, Container, Row } from 'reactstrap';
 import OwnerMenu from './Components/OwnerMenu';
 import ManagerMenu from './Components/ManagerMenu';
-import{ BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import RetrieveReport from './Components/RetrieveReport';
-import ViewDepartmentById from './Components/ViewDepartmentById';
+import ViewDepartmentByName from './Components/ViewDepartmentByName';
 import AddInventory from './Components/AddInventory';
 import ViewInventoryByName from './Components/ViewInventoryByName';
 import ViewStaffByCode from './Components/ViewStaffByCode';
@@ -43,6 +43,7 @@ import IssueBill from './Components/Receptionist/IssueBill';
 import IssueBillResult from './Components/Receptionist/IssueBillResult';
 import LoginData from './Components/Login';
 import LoginSlideshow from './Components/LoginSlideshow';
+import UpdateDepartment from './Components/UpdateDepartment';
 
 function App() {
 
@@ -50,66 +51,66 @@ function App() {
   return (
     <div >
       <Router>
-      <Container >
+
         <Header />
         <Row>
-          <Col md={4}>
+          <Col md={4} >
             <Routes>
-              <Route path='/' element={<LoginData />} exact/>
-              <Route path="/owner/*" element = {<OwnerMenu />} exact/>
-              <Route path="/manager/*" element = {<ManagerMenu />} exact/>
-              <Route path="/receptionist/*" element = {<ReceptionistMenu />} exact/>
+              <Route path='/' element={<LoginData />} exact />
+              <Route path="/owner/*" element={<OwnerMenu />} exact />
+              <Route path="/manager/*" element={<ManagerMenu />} exact />
+              <Route path="/receptionist/*" element={<ReceptionistMenu />} exact />
             </Routes>
-            
+
           </Col>
-          <Col md={8}>
+          <Col md={8} style={{ minHeight: "575px", padding: "0px", margin: "0px", width: "1010px" }}>
             <Routes>
+              <Route path='/' element={<Home />} exact />
+              <Route path="/owner" element={<Home />} exact />
+              <Route path='/owner/adddepartment' element={< AddDepartment />} exact />
+              <Route path='/owner/viewall' element={<AllDepartments />} exact />
+              <Route path='/owner/viewall/update/:name' element={<UpdateDepartment />} exact />
+              <Route path='/owner/viewdepartmentbyName' element={<ViewDepartmentByName />} exact />
+              <Route path='/owner/viewdepartmentbyName/result/:name' element={<ViewDepartmentResult />} exact />
+              <Route path='/owner/viewdepartmentbyName/result/update/:name' element={<UpdateDepartment />} exact />
+              <Route path='/owner/retrievereport' element={<RetrieveReport />} exact />
+              <Route path='/owner/notifications' element={<Notifications />} exact />
+              <Route path='/owner/adduser' element={< AddUser />} exact />
+              <Route path='/owner/updateuser' element={<UpdateUser />} exact />
+              <Route path='/owner/deleteuser' element={<DeleteUser />} exact />
+              <Route path='/owner' element={<Home />} exact />
 
-            <Route path='/' element={<LoginSlideshow />} exact/>
+              <Route path="/manager" element={<Home />} exact />
+              <Route path='/manager/addinventory' element={< AddInventory />} exact />
+              <Route path='/manager/viewinventory' element={< ViewAllInventory />} exact />
+              <Route path='/manager/viewinventorybyname' element={< ViewInventoryByName />} exact />
+              <Route path='/manager/viewinventorybyname/result' element={< ViewInventoryResult />} exact />
+              <Route path='/manager/addstaff' element={< AddStaff />} exact />
+              <Route path='/manager/viewstaff' element={< ViewAllStaff />} exact />
+              <Route path='/manager/viewstaffbycode' element={< ViewStaffByCode />} exact />
+              <Route path='/manager/viewstaffbycode/result' element={< ViewStaffResult />} exact />
+              <Route path='/manager/addRoom' element={< AddRoom />} exact />
+              <Route path='/manager/viewroombyroomno' element={< ViewRoomByRoomNo />} exact />
+              <Route path='/manager/viewroombyroomno/result' element={< SearchRoomNoResult />} exact />
+              <Route path='/manager/setrates' element={< SetRates />} exact />
 
-            <Route path="/owner" element={<Home />} exact />
-            <Route path='/owner/adddepartment' element={< AddDepartment/>} exact/>
-            <Route path='/owner/viewall' element={<AllDepartments />} exact/>
-            <Route path='/owner/viewdepartmentbyid' element={<ViewDepartmentById />} exact/>
-            <Route path='/owner/viewdepartmentbyid/result' element={<ViewDepartmentResult />} exact/>
-            <Route path='/owner/retrievereport' element={<RetrieveReport />} exact/>
-            <Route path='/owner/notifications' element={<Notifications />} exact/>
-            <Route path='/owner/adduser' element={< AddUser/>} exact/>
-            <Route path='/owner/updateuser' element={<UpdateUser />} exact/>
-            <Route path='/owner/deleteuser' element={<DeleteUser />} exact/>
-            <Route path='/owner' element={<Home />} exact/>
-
-            <Route path="/manager" element={<Home />} exact />
-            <Route path='/manager/addinventory' element={< AddInventory/>} exact/>
-            <Route path='/manager/viewinventory' element={< ViewAllInventory/>} exact/>
-            <Route path='/manager/viewinventorybyname' element={< ViewInventoryByName/>} exact/>
-            <Route path='/manager/viewinventorybyname/result' element={< ViewInventoryResult/>} exact/>
-            <Route path='/manager/addstaff' element={< AddStaff/>} exact/>
-            <Route path='/manager/viewstaff' element={< ViewAllStaff/>} exact/>
-            <Route path='/manager/viewstaffbycode' element={< ViewStaffByCode/>} exact/>
-            <Route path='/manager/viewstaffbycode/result' element={< ViewStaffResult/>} exact/>
-            <Route path='/manager/addRoom' element={< AddRoom/>} exact/>
-            <Route path='/manager/viewroombyroomno' element={< ViewRoomByRoomNo/>} exact/>
-            <Route path='/manager/viewroombyroomno/result' element={< SearchRoomNoResult/>} exact/>
-            <Route path='/manager/setrates' element={< SetRates/>} exact/>
-
-            <Route path="/receptionist" element={<Home />} exact />
-            <Route path='/receptionist/addguest' element={< AddGuest/>} exact/>
-            <Route path='/receptionist/viewguestbyid' element={< ViewGuestById/>} exact/>
-            <Route path='/receptionist/viewguestbyid/result' element={< ViewGuestResult/>} exact/>
-            <Route path='/receptionist/searchroom' element={< SearchRoom/>} exact/>
-            <Route path='/receptionist/searchroom/result' element={< SearchRoomResult/>} exact/>
-            <Route path='/receptionist/searchroom/result/reservation' element={< Reservation/>} exact/>
-            <Route path='/receptionist/issuebill' element={< IssueBill/>} exact/>
-            <Route path='/receptionist/issuebill/result' element={< IssueBillResult/>} exact/>
+              <Route path="/receptionist" element={<Home />} exact />
+              <Route path='/receptionist/addguest' element={< AddGuest />} exact />
+              <Route path='/receptionist/viewguestbyid' element={< ViewGuestById />} exact />
+              <Route path='/receptionist/viewguestbyid/result' element={< ViewGuestResult />} exact />
+              <Route path='/receptionist/searchroom' element={< SearchRoom />} exact />
+              <Route path='/receptionist/searchroom/result' element={< SearchRoomResult />} exact />
+              <Route path='/receptionist/searchroom/result/reservation' element={< Reservation />} exact />
+              <Route path='/receptionist/issuebill' element={< IssueBill />} exact />
+              <Route path='/receptionist/issuebill/result' element={< IssueBillResult />} exact />
 
             </Routes>
           </Col>
         </Row>
-      </Container>
+
       </Router>
     </div>
-    
+
   );
 }
 

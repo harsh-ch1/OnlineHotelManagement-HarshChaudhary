@@ -1,9 +1,9 @@
 import React from "react";
 
-const SearchRoomNoResult=()=>{
-    return(
+const SearchRoomNoResult = () => {
+    return (
         <>
-        <h4>This is Search room no result</h4>
+            <h4>This is Search room no result</h4>
         </>
     )
 }

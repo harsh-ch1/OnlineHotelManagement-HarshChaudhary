@@ -1,5 +1,5 @@
 import React from "react";
-import{
+import {
     Card,
     CardBody,
     CardTitle,
@@ -10,9 +10,9 @@ import{
     Container,
 } from "reactstrap";
 
-const User =({user})=>{
+const User = ({ user }) => {
 
-    return(
+    return (
         <Card className="text-center">
             <CardBody>
                 <CardSubtitle className="fw-bold">{user.name}</CardSubtitle>
@@ -20,7 +20,7 @@ const User =({user})=>{
                 <CardText>Email : {user.username}</CardText>
                 <CardText>Password : {user.password}</CardText>
                 <CardText>Role : {user.role}</CardText>
-                
+
                 <Container className="text-center">
                     <Button color="warning">Delete</Button>
                 </Container>

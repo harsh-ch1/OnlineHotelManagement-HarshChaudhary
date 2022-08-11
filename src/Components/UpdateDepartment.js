@@ -3,26 +3,52 @@ import React, { useState, handleClick, useStyles, useEffect } from "react";
 import { Button, Container, Form, FormGroup, Input } from "reactstrap";
 import Department from "./Department";
 import base_url from "../api/bootapi";
+import { useParams } from 'react-router-dom';
 
-
-const AddDepartment = () => {
+const UpdateDepartment = () => {
     useEffect(() => {
-        document.title = "Add Department";
+        document.title = "Update Department";
     }, []);
 
+    useEffect(() => {
+        getdata();
+    }, []);
+    var name = useParams();
+    console.log(name.name);
+    const getdata = () => {
+        axios.get(`${base_url}ManageDepartment/viewdepartment/${name.name}`, {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "*",
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Methods": "*"
+            }
+        }).then(
+            (response) => {
+                if (response.data.id != null) {
+                    console.log(response.data);
+                    setDepartment(response.data);
+                }
+            }, (error) => {
+                console.log(error);
+                console.log("error");
+            }
+        )
+    }
     const [department, setDepartment] = useState({});
 
     // form handler function
     const handleForm = (e) => {
         console.log(department);
-        postDataToServer(department);
+        putDataToServer(department);
         e.preventDefault();
     };
 
     // function to post data on backend
-    const postDataToServer = (data) => {
-        axios.post(`${base_url}ManageDepartment/adddepartment`, data, {
+    const putDataToServer = (data) => {
+        axios.put(`${base_url}ManageDepartment/updatedepartment`, data, {
             headers: {
+                "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Headers": "Content-Type",
                 "Access-Control-Allow-Methods": "*"
             }
@@ -31,7 +57,7 @@ const AddDepartment = () => {
                 if (response.data.id != null) {
                     console.log(response);
                     console.log("success");
-                    alert("Department added successfully");
+                    alert("Department updated successfully");
                 } else {
                     alert("please fill correct data");
                 }
@@ -45,13 +71,13 @@ const AddDepartment = () => {
     return (
         <div>
 
-            <h1 className="text-center my-3">Fill Department Details</h1>
+            <h1 className="text-center my-3">Update Department Details</h1>
             <Form onSubmit={handleForm}>
                 <FormGroup>
                     <label htmlFor="departmentId">Department Id</label>
                     <Input
                         type="number"
-                        placeholder="Enter Id here"
+                        defaultValue={department.id}
                         name="departmentId"
                         id="departmentId"
                         onChange={(e) => {
@@ -65,7 +91,7 @@ const AddDepartment = () => {
                     <label htmlFor="departmentName">Department Name </label>
                     <Input
                         type="text"
-                        placeholder="Enter Name here"
+                        defaultValue={department.name}
                         name="departmentName"
                         id="departmentName"
                         onChange={(e) => {
@@ -77,7 +103,7 @@ const AddDepartment = () => {
                     <label htmlFor="departmentSize">Department Size </label>
                     <Input
                         type="number"
-                        placeholder="Enter Size here"
+                        defaultValue={department.sizeOfDepartment}
                         name="departmentSize"
                         id="departmentSize"
                         onChange={(e) => {
@@ -89,7 +115,7 @@ const AddDepartment = () => {
                     <label htmlFor="hodName">HOD Name</label>
                     <Input
                         type="text"
-                        placeholder="Enter Hod Name here"
+                        defaultValue={department.hodName}
                         name="hodName"
                         id="hodName"
                         onChange={(e) => {
@@ -101,7 +127,7 @@ const AddDepartment = () => {
                     <label htmlFor="hodPhoneNo">HOD Phone No</label>
                     <Input
                         type="tel"
-                        placeholder="Enter Phone here"
+                        defaultValue={department.hodPhoneNo}
                         name="hodPhoneNo"
                         id="hodPhoneNo"
                         onChange={(e) => {
@@ -111,7 +137,7 @@ const AddDepartment = () => {
                 </FormGroup>
                 <Container className="text-center">
                     <Button type="submit" color="success">Submit</Button>
-                    <Button type={"reset"} color="dark " style={{ margin: 8 }}>clear</Button>
+                    <Button type={"reset"} color="dark " style={{ margin: 8 }}>Reset</Button>
                 </Container>
             </Form>
 
@@ -119,4 +145,4 @@ const AddDepartment = () => {
     );
 };
 
-export default AddDepartment;
+export default UpdateDepartment;
