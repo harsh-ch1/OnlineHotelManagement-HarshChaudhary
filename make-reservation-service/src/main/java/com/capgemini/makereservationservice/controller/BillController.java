@@ -1,12 +1,12 @@
 package com.capgemini.makereservationservice.controller;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +17,7 @@ import com.capgemini.makereservationservice.service.BillService;
 import com.capgemini.makereservationservice.service.EmailService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/IssueBill")
 public class BillController {
 	Logger logger = LoggerFactory.getLogger(ReservationController.class);
@@ -31,7 +32,7 @@ public class BillController {
 	public ResponseEntity<?> issueBill(@PathVariable int roomno) {
 		BillModel billmodel = billService.issueBill(roomno);
 		if(billmodel.getBillid() == 0) {
-			return new ResponseEntity<>("NO BOOKING FOUND TO ISSUE BILL ", HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<>("NO BOOKING FOUND TO ISSUE BILL FOR NOW", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		StringBuilder maildata = new StringBuilder(
 				"Hello Guest, \n\nThank you for choosing us as your staying destination. Your bill has been generated and details are as follows: \n");
@@ -56,6 +57,9 @@ public class BillController {
 	public ResponseEntity<IncomeList> incomereport() {
 		logger.info("Report data for income has been accessed");
 		return ResponseEntity.ok(billService.generateReport());
-	}
-
+	
 }
+}
+
+
+

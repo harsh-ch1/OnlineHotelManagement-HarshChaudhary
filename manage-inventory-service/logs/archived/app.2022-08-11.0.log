@@ -1,0 +1,5 @@
+2022-08-11 09:54:07,260 INFO com.capgemini.manageinventoryservice.ManageInventoryServiceApplication [main] Starting ManageInventoryServiceApplication using Java 17.0.2 on Harsh with PID 23564 (C:\Users\darsh\Downloads\Online Hotel Management System\manage-inventory-service\target\classes started by darsh in C:\Users\darsh\Downloads\Online Hotel Management System\manage-inventory-service)
+2022-08-11 09:54:07,267 INFO com.capgemini.manageinventoryservice.ManageInventoryServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-11 09:54:15,015 INFO com.capgemini.manageinventoryservice.ManageInventoryServiceApplication [main] Started ManageInventoryServiceApplication in 8.359 seconds (JVM running for 9.678)
+2022-08-11 09:54:16,661 INFO com.capgemini.manageinventoryservice.controller.InventoryController [http-nio-8082-exec-1] Add Inventory has been accessed
+2022-08-11 09:54:48,840 INFO com.capgemini.manageinventoryservice.controller.InventoryController [http-nio-8082-exec-2] Add Inventory has been accessed
